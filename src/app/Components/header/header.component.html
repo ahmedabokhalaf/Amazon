@@ -1,18 +1,135 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<header>
+  <div class="container-fluid" style="background-color: #131921;">
+    <div class="row p-2">
+      <div class="col-md-1 d-flex align-items-center justify-content-center justify-content-md-start mb-3 mb-md-0">
+        <a href="#!" class="ms-md-2 text-light">
+          <img src="./assets/amazonlogo.png" class="w-75" />
+          <span class="text-light">.in</span>
+        </a>
+      </div>
+      <div class="col-md-2">
+        <a href="#!" class="ms-md-2 text-light d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+          <i class="fa fa-map-marker me text-light"></i>
+          <span>hello,enter your address</span>
+        </a>
+      </div>
+      <div class="col-md-5">
+        <form class="d-flex input-group w-auto my-auto mb-3 mb-md-0">
+          <button type="submit" class="all">
+            All <i class="fa fa-sort-desc"></i>
+          </button>
+          <input autocomplete="off" type="search" class="form-control rounded box" placeholder="Search" />
+          <span style=" background: rgb(247, 155, 80);" class="input-group-text border-0 d-none d-lg-flex">
+            <i class="fas fa-search text-white"></i>
+          </span>
+        </form>
+      </div>
+
+      <div class="col-md-4 d-flex justify-content-center justify-content-md-end align-items-center">
+        <div class="d-flex">
+          <!-- Languages -->
+          <div class="dropdown">
+            <a class="text-reset dropdown-toggle me-3 hidden-arrow" href="#" id="navbarDropdown" role="button"
+              data-mdb-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-flag m-0 text-light"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="#"><i class="united kingdom flag"></i>English
+                  <i class="fa fa-check text-success ms-2"></i></a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="poland flag"></i>Polski</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="china flag"></i>中文</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="japan flag"></i>日本語</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="germany flag"></i>Deutsch</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="france flag"></i>Français</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="spain flag"></i>Español</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="russia flag"></i>Русский</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="portugal flag"></i>Português</a>
+              </li>
+            </ul>
+          </div>
+          <a href="#" class="text-light badge badge-primary text-wrap" style="width: 6rem;">
+            <span>Hello,Account & Lists<i class="fa fa-sort-desc"></i></span>
+          </a>
+          <a href="#" class="text-light badge badge-primary text-wrap" style="width: 6rem;">
+            <span>Returns & Order</span>
+          </a>
+          <!-- Cart -->
+          <a class="text-reset me-3" href="#">
+            <span><i class="fas fa-shopping-cart text-light"></i></span>
+            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg" style="background-color: #232f3e;">
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink="">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/Home" routerLinkActive="active">Home</a>
+            <a class="nav-link text-light" aria-current="page" routerLink="/Home" routerLinkActive="active">
+              <i class="fa fa-bars"></i>
+              <span>All</span>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Gift Cards</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/Order" routerLinkActive="active">Amazon Pay</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/AddNew" routerLinkActive="active">Amazon Business<i class="fa fa-sort-desc"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/AboutUs" routerLinkActive="active">Pet Supplies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/ContactUs" routerLinkActive="active">Kindle ebooks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">User's Amazon.in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Gift ideas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Video Games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">AmazonBasics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Copuons</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+</header>
