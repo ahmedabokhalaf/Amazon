@@ -1,39 +1,86 @@
 <header>
   <div class="container-fluid" style="background-color: #131921;">
     <div class="row p-2">
-      <div class="col-md-1 d-flex align-items-center justify-content-center justify-content-md-start mb-3 mb-md-0">
-        <a href="#!" class="ms-md-2 text-light">
+      <div class="col-md-1  mb-3 mb-md-0">
+        <a href="#!" class="h-100 d-inline-block text-light">
           <img src="./assets/amazonlogo.png" class="w-75" />
-          <span class="text-light">.in</span>
+          <span class="text-light">.eg</span>
         </a>
       </div>
       <div class="col-md-2">
-        <a href="#!" class="ms-md-2 text-light d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
-          <i class="fa fa-map-marker me text-light"></i>
+        <a href="#!" class="ms-md-2 h-100 d-inline-block text-light d-flex justify-content-center mb-3 mb-md-0">
+          <i class="fa-solid fa-location-dot"></i>
           <span>hello,enter your address</span>
         </a>
       </div>
       <div class="col-md-5">
         <form class="d-flex input-group w-auto my-auto mb-3 mb-md-0">
-          <button type="submit" class="all">
-            All <i class="fa fa-sort-desc"></i>
-          </button>
-          <input autocomplete="off" type="search" class="form-control rounded box" placeholder="Search" />
-          <span style=" background: rgb(247, 155, 80);" class="input-group-text border-0 d-none d-lg-flex">
+          <select id="nav-search-select" class="all col-1">
+            <option selected="selected" value="aps">All</option>
+            <option value="alexa-skills">Alexa Skills</option>
+            <option value="instant-video">Amazon Video</option>
+            <option value="warehouse-deals">Amazon Warehouse Deals</option>
+            <option value="appliances">Appliances</option>
+            <option value="mobile-apps">Apps &amp; Games</option>
+            <option value="arts-crafts">Arts, Crafts &amp; Sewing</option>
+            <option value="automotive">Automotive Parts &amp; Accessories</option>
+            <option value="baby-products">Baby</option>
+            <option value="beauty">Beauty &amp; Personal Care</option>
+            <option value="stripbooks">Books</option>
+            <option value="popular">CDs &amp; Vinyl</option>
+            <option value="mobile">Cell Phones &amp; Accessories</option>
+            <option value="fashion">Clothing, Shoes &amp; Jewelry</option>
+            <option value="fashion-womens">&nbsp;&nbsp;&nbsp;Women</option>
+            <option value="fashion-mens">&nbsp;&nbsp;&nbsp;Men</option>
+            <option value="fashion-girls">&nbsp;&nbsp;&nbsp;Girls</option>
+            <option value="fashion-boys">&nbsp;&nbsp;&nbsp;Boys</option>
+            <option value="fashion-baby">&nbsp;&nbsp;&nbsp;Baby</option>
+            <option value="collectibles">Collectibles &amp; Fine Art</option>
+            <option value="computers">Computers</option>
+            <option value="courses">Courses</option>
+            <option value="financial">Credit and Payment Cards</option>
+            <option value="digital-music">Digital Music</option>
+            <option value="electronics">Electronics</option>
+            <option value="gift-cards">Gift Cards</option>
+            <option value="grocery">Grocery &amp; Gourmet Food</option>
+            <option value="handmade">Handmade</option>
+            <option value="hpc">Health, Household &amp; Baby Care</option>
+            <option value="local-services">Home &amp; Business Services</option>
+            <option value="garden">Home &amp; Kitchen</option>
+            <option value="industrial">Industrial &amp; Scientific</option>
+            <option value="digital-text">Kindle Store</option>
+            <option value="fashion-luggage">Luggage &amp; Travel Gear</option>
+            <option value="luxury-beauty">Luxury Beauty</option>
+            <option value="magazines">Magazine Subscriptions</option>
+            <option value="movies-tv">Movies &amp; TV</option>
+            <option value="mi">Musical Instruments</option>
+            <option value="office-products">Office Products</option>
+            <option value="lawngarden">Patio, Lawn &amp; Garden</option>
+            <option value="pets">Pet Supplies</option>
+            <option value="prime-exclusive">Prime Exclusive</option>
+            <option value="pantry">Prime Pantry</option>
+            <option value="software">Software</option>
+            <option value="sporting">Sports &amp; Outdoors</option>
+            <option value="tools">Tools &amp; Home Improvement</option>
+            <option value="toys-and-games">Toys &amp; Games</option>
+            <option value="vehicles">Vehicles</option>
+            <option value="videogames">Video Games</option>
+            <option value="wine">Wine</option>
+          </select>
+          <input autocomplete="off" type="search" class="form-control rounded box col-10" placeholder="Search" />
+          <span style=" background: rgb(247, 155, 80);" class="col-1 input-group-text border-0 d-lg-flex">
             <i class="fas fa-search text-white"></i>
           </span>
         </form>
       </div>
-
-      <div class="col-md-4 d-flex justify-content-center justify-content-md-end align-items-center">
+      <div class="col-md-4 d-flex justify-content-md-around align-items-center">
         <div class="d-flex">
-          <!-- Languages -->
+
           <div class="dropdown">
-            <a class="text-reset dropdown-toggle me-3 hidden-arrow" href="#" id="navbarDropdown" role="button"
-              data-mdb-toggle="dropdown" aria-expanded="false">
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa fa-flag m-0 text-light"></i>
             </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <li>
                 <a class="dropdown-item" href="#"><i class="united kingdom flag"></i>English
                   <i class="fa fa-check text-success ms-2"></i></a>
@@ -74,7 +121,7 @@
             <span>Returns & Order</span>
           </a>
           <!-- Cart -->
-          <a class="text-reset me-3" href="#">
+          <a class="btn" href="#">
             <span><i class="fas fa-shopping-cart text-light"></i></span>
             <span class="badge rounded-pill badge-notification bg-danger">1</span>
           </a>
@@ -99,34 +146,35 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Gift Cards</a>
+            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Today's Deals</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/Order" routerLinkActive="active">Amazon Pay</a>
+            <a class="nav-link text-light" routerLink="/Order" routerLinkActive="active">Mobile Phones</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/AddNew" routerLinkActive="active">Amazon Business<i class="fa fa-sort-desc"></i></a>
+            <a class="nav-link text-light" routerLink="/AddNew" routerLinkActive="active">Amazon Business<i
+                class="fa fa-sort-desc"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/AboutUs" routerLinkActive="active">Pet Supplies</a>
+            <a class="nav-link text-light" routerLink="/AboutUs" routerLinkActive="active">Electronics</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/ContactUs" routerLinkActive="active">Kindle ebooks</a>
+            <a class="nav-link text-light" routerLink="/ContactUs" routerLinkActive="active">Help</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">User's Amazon.in</a>
+            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Appliances</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Gift ideas</a>
+            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Fashion</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Video Games</a>
+            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">AmazonBasics</a>
+            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Grocery</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Copuons</a>
+            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Your amazon.eg</a>
           </li>
         </ul>
       </div>

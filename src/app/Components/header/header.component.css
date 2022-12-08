@@ -17,10 +17,12 @@
   .all {
 	background: #ddd;
 	border-radius: 5px 0px 0px 5px;
-	padding: 10px 10px;
 	color: black;
-	font-size: 17px;
 	border: none;
 	border-radius: 5px 0px 0px 5px;
 	cursor: pointer;
   }
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; 
+ }

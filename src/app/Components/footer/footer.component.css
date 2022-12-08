@@ -28,11 +28,7 @@ footer {
     padding-top: 2em;
     color: white;
   }
-  
-  
-  /*SOCİAL İCONS*/
-  
-  /* footer social icons */
+
   
   ul.social-network {
     list-style: none;
@@ -111,4 +107,6 @@ footer {
   .social-network a {
     background-color: #F9F9F9;
   }
+  
+
   
