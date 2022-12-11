@@ -126,10 +126,10 @@
                 <span> All</span>
               </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Today's Deals</a>
+          <li class="nav-item" *ngFor="let c of categoryList" [value]="c.id">
+            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">{{c.name}}</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link text-light" routerLink="/Order" routerLinkActive="active">Mobile Phones</a>
           </li>
           <li class="nav-item">
@@ -156,7 +156,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Your amazon.eg</a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -185,7 +185,7 @@
               <a class="text-black" routerLink="/register">Fashion</a>
             </li>
             <li class="list-group-item">
-              <a class="text-black" routerLink="/register">Fashion</a>
+              <a class="text-black" routerLink="/Categories">Fashion</a>
             </li>
           </ul>
 

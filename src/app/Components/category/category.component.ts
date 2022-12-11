@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ICategory } from 'src/app/Models/icategory';
+import { CategoryApiService } from 'src/app/Services/category-api.service';
 
 @Component({
   selector: 'app-category',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
 
-  constructor() { }
+  categoryList: ICategory[] = [];
+  selectedCatID: number = 0;
+  
+  constructor(private catApiService:CategoryApiService) {
+    this.catApiService.getAllCategories().subscribe(cat => { this.categoryList = cat.data.categories});
+  }
 
   ngOnInit(): void {
   }

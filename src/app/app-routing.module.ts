@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CategoryComponent } from './Components/category/category.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
       {path:'',redirectTo:'Home',pathMatch:'full'},// Default path 
       {path:'Home',component: HomeComponent},
       {path:'Products',component:ProductComponent},
+      {path:'Categories',component:CategoryComponent},
     ]},
      {path:'register',component: UserRegisterComponent},
      {path:'login',component: LoginComponent},
