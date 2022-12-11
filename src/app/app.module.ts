@@ -16,6 +16,9 @@ import { BrandComponent } from './Components/brand/brand.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { SubProductsComponent } from './Components/sub-products/sub-products.component';
+
 
 
 @NgModule({
@@ -32,11 +35,13 @@ import { HttpClientModule } from '@angular/common/http';
     CategoryComponent,
     BrandComponent,
     CartComponent,
-    LoginComponent
+    LoginComponent,
+    SubProductsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],
