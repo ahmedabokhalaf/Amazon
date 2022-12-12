@@ -1,4 +1,6 @@
 import { Component, Input ,OnInit  } from "@angular/core";
+import { IProduct } from "src/app/Models/iproduct";
+import { ProductApiService } from "src/app/Services/product-api.service";
 
 
 @Component({
@@ -9,7 +11,10 @@ import { Component, Input ,OnInit  } from "@angular/core";
 export class SubProductsComponent implements OnInit{
   @Input() receivedCatID: number = 0;
   id:number=0;
-  constructor() { }
+  productList: IProduct[] = [];
+  constructor(private catApiService:ProductApiService) {
+    this.catApiService.getAllProduct().subscribe(cat => { this.productList = cat.data.products});
+  }
 
   ngOnInit(): void {
   }
