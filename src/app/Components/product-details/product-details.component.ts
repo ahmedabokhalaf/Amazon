@@ -23,8 +23,6 @@ export class ProductDetailsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-     this.prdIDsList= this.productService.getProductsIDList();
-
   }
 
     
