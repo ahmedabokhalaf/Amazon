@@ -1,0 +1,16 @@
+<div class="card" style="width:18rem;">
+    <img [src]="prd?.ProductImages" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Name: {{prd?.Name}}</h5>
+      <div class="card-text">
+  
+          <h5>Price:{{prd?.Price}}</h5>
+          <h5>Quantity:{{prd?.Quantity}}</h5>
+      </div>
+      <a   class="btn btn-warning mx-auto"> <i class="fa fa-shopping-cart"></i>Add to Cart</a>
+    </div>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button class="btn btn-danger" (click)="goBack()">Back</button>
+    
+    </div>
+  </div>

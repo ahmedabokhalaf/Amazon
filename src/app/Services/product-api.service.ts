@@ -10,6 +10,9 @@ import { Data, IProduct } from '../Models/iproduct';
 export class ProductApiService {
 
   private http_options={};
+
+
+  getProductsIDList: any;
   constructor(private httpclinet:HttpClient) {
    this.http_options = {
      headers:new HttpHeaders({
