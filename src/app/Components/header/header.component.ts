@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ICategory } from 'src/app/Models/icategory';
+import { CategoryApiService } from 'src/app/Services/category-api.service';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
-
+  categoryList: ICategory[] = [];
+  constructor(private catApiService:CategoryApiService) {
+    this.catApiService.getAllCategories().subscribe(cat => { this.categoryList = cat.data.categories});
+  }
   ngOnInit(): void {
   }
 

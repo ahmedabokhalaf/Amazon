@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IBrand } from 'src/app/Models/ibrand';
+import { BrandApiService } from 'src/app/Services/brand-api.service';
 
 @Component({
   selector: 'app-brand',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrandComponent implements OnInit {
 
-  constructor() { }
+  BrandList : IBrand[] = [];
+  SelectedBrandID :number =0;
+
+  constructor(private brandApiService : BrandApiService) { 
+    this.brandApiService.getAllBrands().subscribe(brands =>{this.BrandList = brands.data.ibrands} ) 
+  }
 
   ngOnInit(): void {
   }
