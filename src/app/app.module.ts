@@ -16,8 +16,15 @@ import { BrandComponent } from './Components/brand/brand.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+
+
+
+
+import { ProductDetailsComponent } from './Components/product-details/product-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SubProductsComponent } from './Components/sub-products/sub-products.component';
+
+ 
 
 
 
@@ -42,7 +49,7 @@ import { SubProductsComponent } from './Components/sub-products/sub-products.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
