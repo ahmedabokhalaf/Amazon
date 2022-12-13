@@ -14,4 +14,5 @@ export interface IBrand {
 name: any;
 Id: any;
  
+ 
 }

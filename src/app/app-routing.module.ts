@@ -16,11 +16,10 @@ const routes: Routes = [
       {path:'',redirectTo:'Home',pathMatch:'full'},// Default path 
       {path:'Home',component: HomeComponent},
       {path:'Products',component:ProductComponent},
-      {path:'Categories',component:CategoryComponent},
-      {path:'Brands',component:BrandComponent},
       {path:'productDetails',component:ProductDetailsComponent},
-
-
+      {path:'Brands',component:BrandComponent},
+      {path:'Categorys',component:CategoryComponent},
+      
     ]},
      {path:'register',component: UserRegisterComponent},
      {path:'login',component: LoginComponent},

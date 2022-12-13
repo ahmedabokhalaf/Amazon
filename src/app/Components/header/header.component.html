@@ -1,16 +1,16 @@
 <header>
   <div class="container-fluid" style="background-color: #131921;">
     <div class="row p-2">
-      <div class="col-md-1  mb-3 mb-md-0">
+      <div class="col-md-2  mb-3 mb-md-0">
         <a href="#!" class="h-100 d-inline-block text-light">
           <img src="./assets/amazonlogo.png" class="w-75" />
           <span class="text-light">.eg</span>
         </a>
       </div>
-      <div class="col-md-2">
-        <a href="#!" class="ms-md-2 h-100 d-inline-block text-light d-flex justify-content-center mb-3 mb-md-0">
-          <i class="fa-solid fa-location-dot"></i>
-          <span>hello,enter your address</span>
+      <div class="col-md-1">
+          <a href="#" class="text-light h-100 badge badge-primary text-wrap" style="width: 6rem;">
+            <i class="fa-solid fa-location-dot"></i>
+            <span> hello,enter your address</span>
         </a>
       </div>
       <div class="col-md-5">
@@ -126,29 +126,40 @@
                 <span> All</span>
               </a>
           </li>
+ 
           <li class="nav-item" *ngFor="let c of categoryList" [value]="c.id">
             <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">{{c.name}}</a>
           </li>
           <!-- <li class="nav-item">
             <a class="nav-link text-light" routerLink="/Order" routerLinkActive="active">Mobile Phones</a>
+ 
+          <!-- <li class="nav-item" *ngFor="let c of categoryList" [value]="c.id">
+            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">{{c.name}}</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Mobile Phones</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/AddNew" routerLinkActive="active">Amazon Business<i
-                class="fa fa-sort-desc"></i></a>
+            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Tv</a>
+ 
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/AboutUs" routerLinkActive="active">Electronics</a>
+            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Electronics</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/ContactUs" routerLinkActive="active">Help</a>
+            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Clothes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Appliances</a>
+            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Sports</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Fashion</a>
+            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Fashion</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+ 
             <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Home</a>
           </li>
           <li class="nav-item">
@@ -157,6 +168,10 @@
           <li class="nav-item">
             <a class="nav-link text-light" routerLink="/register" routerLinkActive="active">Your amazon.eg</a>
           </li> -->
+ 
+            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Grocery</a>
+          <!-- </li> -->
+
         </ul>
       </div>
     </div>

@@ -17,7 +17,10 @@ import { CartComponent } from './Components/cart/cart.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { SubProductsComponent } from './Components/sub-products/sub-products.component';
+
+ 
 
 
 @NgModule({
@@ -35,14 +38,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrandComponent,
     CartComponent,
     LoginComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    SubProductsComponent
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+ 
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+ 
+    FormsModule,
+    HttpClientModule
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
