@@ -50,6 +50,7 @@ import { SubProductsComponent } from './Components/sub-products/sub-products.com
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

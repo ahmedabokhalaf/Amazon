@@ -110,7 +110,6 @@
             <span><i class="fas fa-shopping-cart text-light"></i></span>
             <span class="badge rounded-pill badge-notification bg-danger">1</span>
           </a>
-
         </div>
       </div>
     </div>
@@ -131,32 +130,8 @@
                 <span> All</span>
               </a>
           </li>
-          <!-- <li class="nav-item" *ngFor="let c of categoryList" [value]="c.id">
-            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">{{c.name}}</a>
-          </li> -->
-          <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Mobile Phones</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Tv</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Electronics</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Clothes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Sports</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Fashion</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/Products" routerLinkActive="active">Grocery</a>
+          <li class="nav-item" *ngFor="let c of categoryList">
+            <a class="nav-link text-light" (click)="openCatDetails(c.id)" routerLinkActive="active">{{c.name}}</a>
           </li>
         </ul>
       </div>

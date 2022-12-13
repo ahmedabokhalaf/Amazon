@@ -5,9 +5,6 @@ import { environment } from 'src/environments/environment';
 import { Data,IBrand } from '../Models/ibrand';
  
 
- 
- 
- 
 
 @Injectable({
   providedIn: 'root'

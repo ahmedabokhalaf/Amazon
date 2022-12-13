@@ -12,7 +12,7 @@ import { ProductApiService } from "src/app/Services/product-api.service";
 })
 export class SubProductsComponent implements OnInit{
   @Input() receivedBrandID: number = 0;
-  @Input() receivedCatID: number = 0;
+  @Input() receivedCatName: string = "";
   id:number=0;
   productList: IProduct[] = [];
   prdListOfBrand:IProduct[]=[];
