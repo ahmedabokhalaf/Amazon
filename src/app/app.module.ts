@@ -19,39 +19,43 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
-
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SubProductsComponent } from './Components/sub-products/sub-products.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { PaypalComponent } from './paypal/paypal.component';
 
  
 
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    FooterComponent,
-    SideMenuComponent,
-    UserRegisterComponent,
-    MainLayoutComponent,
-    NotFoundComponent,
-    HeaderComponent,
-    ProductComponent,
-    CategoryComponent,
-    BrandComponent,
-    CartComponent,
-    LoginComponent,
-    SubProductsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        FooterComponent,
+        SideMenuComponent,
+        UserRegisterComponent,
+        MainLayoutComponent,
+        NotFoundComponent,
+        HeaderComponent,
+        ProductComponent,
+        CategoryComponent,
+        BrandComponent,
+        CartComponent,
+        LoginComponent,
+        SubProductsComponent,
+        ProductDetailsComponent,
+        PaypalComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        NgxPayPalModule
+    ]
 })
 export class AppModule { }

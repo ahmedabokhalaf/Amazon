@@ -1,4 +1,4 @@
-import { APP_ID, Component, OnInit } from '@angular/core';
+import { APP_ID, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Data, Router } from '@angular/router';
 import { IProduct } from 'src/app/Models/iproduct';
 import { ProductApiService } from 'src/app/Services/product-api.service';
@@ -10,13 +10,16 @@ import { Location } from '@angular/common';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-
+  @Input() data:any={};
+  @Output() item=new EventEmitter();
+  
   dataProd:Data|undefined=undefined;
   Prod:IProduct|undefined=undefined;
   prdIDsList:number[] = [];
   productList: IProduct[] = [];
   currentPrdID:number=0;
-
+  
+  
   constructor(private productApiService:ProductApiService,
     private activedRoute: ActivatedRoute,
     private location:Location,
@@ -40,5 +43,7 @@ export class ProductDetailsComponent implements OnInit {
   goBack(){
     this.location.back();
   }
-
+  AddToCart(){
+    this.item.emit(this.data);
+  }
 }

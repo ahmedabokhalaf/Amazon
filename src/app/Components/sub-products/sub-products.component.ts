@@ -1,4 +1,4 @@
-import { Component, Input ,OnInit  } from "@angular/core";
+import { Component, EventEmitter, Input ,OnInit, Output  } from "@angular/core";
 import { Router } from "@angular/router";
 import { IProduct } from "src/app/Models/iproduct";
 import { BrandApiService } from "src/app/Services/brand-api.service";
@@ -13,6 +13,7 @@ import { ProductApiService } from "src/app/Services/product-api.service";
 export class SubProductsComponent implements OnInit{
   @Input() receivedBrandID: number = 0;
   @Input() receivedCatID: number = 0;
+  
   id:number=0;
   productList: IProduct[] = [];
   prdListOfBrand:IProduct[]=[];
@@ -47,5 +48,5 @@ export class SubProductsComponent implements OnInit{
     // this.route.navigate(['path',parameter])
     this.route.navigate(['Products', prdID]);
   }
-
+  
 }

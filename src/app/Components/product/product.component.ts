@@ -26,5 +26,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  AddToCart(event:any){
+    console.log(event);
+  }
 }
