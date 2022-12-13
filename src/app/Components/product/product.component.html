@@ -12,18 +12,18 @@
     </div>
     <div class="row">
       <div class=" mt-3 h6"><b>Brand:</b>
-        <select class="form-control"[(ngModel)]="selectedCatID">
+        <select class="form-control"[(ngModel)]="selectedBrandID">
           <option value="0">All</option>
-          <option *ngFor="let c of categoryList" [value]="c.id">{{c.name}}</option>
+          <option *ngFor="let brand of brandList" [value]="brand.id">{{brand.name}}</option>
         </select>
-        {{selectedCatID}}
+        {{selectedBrandID}}
       </div>
     </div>
     
  
    </div>
    <div class="col-xl-10 bg-success">
-    <app-sub-products [receivedCatID]="selectedCatID"></app-sub-products>
+    <app-sub-products [receivedBrandID]="selectedBrandID" [receivedCatID]="selectedCatID"></app-sub-products>
 </div>
 </div>
 

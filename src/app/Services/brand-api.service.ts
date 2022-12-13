@@ -24,7 +24,7 @@ export class BrandApiService {
   }
 
   getAllBrands():Observable<Data>{
-    return this.httpClient.get<Data>(`${environment.APIBaseURL}/Brands`);
+    return this.httpClient.get<Data>(`${environment.APIBaseURL}/Brand`);
     
   }
 }
