@@ -1,3 +1,5 @@
+import { IBrand } from "./ibrand";
+
 export interface Data {
     success: boolean;
     message: string;
@@ -6,10 +8,11 @@ export interface Data {
 
 export interface DataClass {
     categories: ICategory[];
+    category:ICategory ;
 }
 
 export interface ICategory {
+    brands: IBrand[];
     id:     number;
     name:   string;
-    brands: any[];
 }
