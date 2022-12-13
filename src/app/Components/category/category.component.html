@@ -1,7 +1,7 @@
  
 <select class="form-control">
 <select class="form-control mt-3"[(ngModel)]="selectedCatID">
-    <option value="0">All</option>
+    <option value="0">{{'All'|translate}}</option>
     <option *ngFor="let c of categoryList" [value]="c.id">{{c.name}}</option>
   </select>
   {{selectedCatID}}

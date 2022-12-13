@@ -15,7 +15,7 @@ import { CategoryComponent } from './Components/category/category.component';
 import { BrandComponent } from './Components/brand/brand.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { LoginComponent } from './Components/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SubProductsComponent } from './Components/sub-products/sub-products.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
  
 
@@ -43,15 +45,26 @@ import { SubProductsComponent } from './Components/sub-products/sub-products.com
     BrandComponent,
     CartComponent,
     LoginComponent,
-    SubProductsComponent
+    SubProductsComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+loader:{
+  provide:TranslateLoader,
+  useFactory:httpTranslateLoader,
+  deps:[HttpClient]
+}
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function httpTranslateLoader(http:HttpClient){
+return new TranslateHttpLoader(http);
+}

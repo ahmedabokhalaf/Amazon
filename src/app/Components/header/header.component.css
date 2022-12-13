@@ -21,6 +21,7 @@
 	border: none;
 	border-radius: 5px 0px 0px 5px;
 	cursor: pointer;
+	
   }
   .dropdown:hover .dropdown-menu {
     display: block;
@@ -67,6 +68,8 @@
   .modal.left_modal .modal-body,
   .modal.right_modal .modal-body {
 	padding: 15px 15px 30px;
+	
+
   }
   
   /*.modal.left_modal  {
@@ -99,6 +102,7 @@
 	   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
 		 -o-transition: opacity 0.3s linear, right 0.3s ease-out;
 			transition: opacity 0.3s linear, right 0.3s ease-out;
+			
   }
   
   
@@ -128,4 +132,9 @@
 	  overflow-y: auto;
 	  overflow-x: hidden;
 	  height: 91vh;
+  }
+  .form-inline{
+	margin-right: 20px;
+	display: flex;
+	
   }
