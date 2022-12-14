@@ -42,6 +42,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   ngOnChanges(): void {
     if (this.receivedBrandID == 0) {
 
@@ -69,5 +70,10 @@ export class ProductComponent implements OnInit {
 
     // this.route.navigate(['path',parameter])
     this.route.navigate(['Products', prdID]);
+  }
+
+  AddToCart(event:any){
+    console.log(event);
+
   }
 }

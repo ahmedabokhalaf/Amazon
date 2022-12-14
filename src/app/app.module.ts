@@ -19,16 +19,18 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
-
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SubProductsComponent } from './Components/sub-products/sub-products.component';
+// import { NgxPayPalModule } from 'ngx-paypal';
+// import { PaypalComponent } from './paypal/paypal.component';
 
  
 
 
 
 @NgModule({
+
   declarations: [
     AppComponent,
     HomeComponent,
@@ -43,16 +45,21 @@ import { SubProductsComponent } from './Components/sub-products/sub-products.com
     BrandComponent,
     CartComponent,
     LoginComponent,
-    SubProductsComponent
+    SubProductsComponent,
+    ProductDetailsComponent,
+    // PaypalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // NgxPayPalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
+
+    
 })
 export class AppModule { }
