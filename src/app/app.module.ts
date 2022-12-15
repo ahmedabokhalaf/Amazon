@@ -22,40 +22,70 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SubProductsComponent } from './Components/sub-products/sub-products.component';
-import { NgxPayPalModule } from 'ngx-paypal';
+
+
+ 
+// import { GooglePayButtonModule } from '@google-pay/button-angular';
+import { ConfirmComponent } from './Components/confirm/confirm.component';
+ 
+ 
 import { PaypalComponent } from './paypal/paypal.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+ 
+
 
  
 
 
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeComponent,
-        FooterComponent,
-        SideMenuComponent,
-        UserRegisterComponent,
-        MainLayoutComponent,
-        NotFoundComponent,
-        HeaderComponent,
-        ProductComponent,
-        CategoryComponent,
-        BrandComponent,
-        CartComponent,
-        LoginComponent,
-        SubProductsComponent,
-        ProductDetailsComponent,
-        PaypalComponent
-    ],
-    providers: [],
-    bootstrap: [AppComponent],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        NgxPayPalModule
-    ]
+
+ 
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    FooterComponent,
+    SideMenuComponent,
+    UserRegisterComponent,
+    MainLayoutComponent,
+    NotFoundComponent,
+    HeaderComponent,
+    ProductComponent,
+    CategoryComponent,
+    BrandComponent,
+    CartComponent,
+    LoginComponent,
+    ProductDetailsComponent,
+    SubProductsComponent,
+    ConfirmComponent,
+    PaypalComponent,
+   
+   
+ 
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    FormsModule,
+    HttpClientModule,
+    NgxPayPalModule
+     
+ 
+  ],
+
+  exports:[
+    CartComponent,
+    
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+ 
+    
+  
+ 
+
 })
 export class AppModule { }

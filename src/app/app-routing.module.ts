@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxPaypalComponent } from 'ngx-paypal/public_api';
-
-
 import { BrandComponent } from './Components/brand/brand.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { CategoryComponent } from './Components/category/category.component';
+import { ConfirmComponent } from './Components/confirm/confirm.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
@@ -24,6 +23,7 @@ const routes: Routes = [
       {path:'Products/:pid',component:ProductDetailsComponent},
       {path:'Brands',component:BrandComponent},
       {path:'Categorys',component:CategoryComponent},
+      {path:'Confirm',component:ConfirmComponent},
       {path: 'Cart', component:CartComponent}
     ]},
     {path:'Payment', component: PaypalComponent},

@@ -8,6 +8,8 @@ import { Data, IProduct } from '../Models/iproduct';
   providedIn: 'root'
 })
 export class ProductApiService {
+ 
+  prdList: IProduct[] = [];
 
   private http_options = {};
 

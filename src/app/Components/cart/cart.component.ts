@@ -1,5 +1,12 @@
+
+ 
+ 
+import { CartService } from 'src/app/Services/cart.service';
+ 
 import { JsonPipe } from '@angular/common';
 import { Component, IterableDiffers, OnInit } from '@angular/core';
+import { IProduct } from 'src/app/Models/iproduct';
+ 
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +14,19 @@ import { Component, IterableDiffers, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  items = this.cartService.getItems();
 
   cartProducts: any[] = []
-  constructor() { }
+
+  Prod:IProduct[]=[]
+   
+ 
+  constructor(private cartService: CartService) {
+   
+   }
+ 
+ 
+
 
   ngOnInit(): void {
   }
@@ -27,9 +44,7 @@ export class CartComponent implements OnInit {
         localStorage.setItem("cart", JSON.stringify(this.cartProducts));//to override new array on the localStorage
       }
     }
-    else {
-      this.cartProducts.push(event);//to push the new product in the array
-      localStorage.setItem("cart", JSON.stringify(this.cartProducts));//to add new array on the localStorage for the first Time
-    }
+
   }
 }
+

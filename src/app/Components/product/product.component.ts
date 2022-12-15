@@ -15,14 +15,20 @@ export class ProductComponent implements OnInit {
   categoryList: ICategory[] = [];
   brandList: IBrand[] = [];
 
+
   selectedBrandID: number = 0;
   selectedCatID: number = 0;
+  CategoryId: IBrand[] =[];
+  BrandList: IBrand[] =[];
+  SelectedBrandID: number = 0;
 
 
   constructor(private brandApiService:BrandApiService,private catApiService:CategoryApiService) {
     this.catApiService.getAllCategories().subscribe(cat => { this.categoryList = cat.data.categories});
     this.brandApiService.getAllBrands().subscribe(brand => { this.brandList = brand.data.brands});
    }
+
+ 
 
   ngOnInit(): void {
   }

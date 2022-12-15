@@ -14,10 +14,12 @@ export interface DataClass {
 
 
 export interface IBrand {
+
     products:   IProduct[];
     id:         number;
     name:       string;
     categoryId: number;
+
 }
 
 

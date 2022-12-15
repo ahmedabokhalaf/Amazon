@@ -1,44 +1,46 @@
-  <div class="container mt-5 mb-5">
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-10">
-            <div class="card">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="images p-3">
-                            <div class="text-center p-4"> <img id="main-image" src="https://i.imgur.com/Dhebu4F.jpg" width="250" /> </div>
-                            <div class="thumbnail text-center"> <img onclick="change_image(this)" src="https://i.imgur.com/Rx7uKd0.jpg" width="70"> <img onclick="change_image(this)" src="https://i.imgur.com/Dhebu4F.jpg" width="70"> </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="product p-4">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="d-flex align-items-center">
-                                  <div
-                                  class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-                                  style="width: 35px; height: 35px;">
-                                  <a (click)="goBack()" class="text-white mb-0 small">
-                                    <i class="fa fa-long-arrow-left fs-5"></i>
-                                  </a>
-                                </div>
-                                </div>
-                                 <i class="fa fa-shopping-cart text-muted"></i>
-                                </div>
-                            <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">Orianz</span>
-                                <h5 class="text-uppercase">{{Prod?.name}}</h5>
-                                <div class="price d-flex flex-row align-items-center"> <span class="act-price">${{Prod?.price}}</span>
-                                </div>
-                            </div>
-                            <p class="about">{{Prod?.description}}</p>
-                            <div class="cart mt-4 align-items-center">
-                               <button class="btn btn-warning text-uppercase mr-2 px-4" (click)="AddToCart()" [routerLink]="['/Cart']">
-                                    <i class="fa fa-shopping-cart"></i> 
-                                    Add to cart
-                                </button> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div class="container mt-5 mb-5">
+  <div class="row d-flex justify-content-center">
+      <div class="col-md-10">
+          <div class="card">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="images p-3">
+                          <div class="text-center p-4"> <img id="main-image" src="https://i.imgur.com/Dhebu4F.jpg" width="250" /> </div>
+                          <div class="thumbnail text-center"> <img onclick="change_image(this)" src="https://i.imgur.com/Rx7uKd0.jpg" width="70"> <img onclick="change_image(this)" src="https://i.imgur.com/Dhebu4F.jpg" width="70"> </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="product p-4">
+                          <div class="d-flex justify-content-between align-items-center">
+                              <div class="d-flex align-items-center">
+                                <div
+                                class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+                                style="width: 35px; height: 35px;">
+                                <a (click)="goBack()" class="text-white mb-0 small">
+                                  <i class="fa fa-long-arrow-left fs-5"></i>
+                                </a>
+                              </div>
+                              </div>
+                               <i class="fa fa-shopping-cart text-muted"></i>
+                              </div>
+                          <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">Orianz</span>
+                              <h5 class="text-uppercase">{{Prod?.name}}</h5>
+                              <div class="price d-flex flex-row align-items-center"> <span class="act-price">${{Prod?.price}}</span>
+                              </div>
+                          </div>
+                          <p class="about">{{Prod?.description}}</p>
+                          <div class="cart mt-4 align-items-center">
+                             <button class="btn btn-warning text-uppercase mr-2 px-4" (click)="AddToCart()" [routerLink]="['/Cart']">
+                                  <i class="fa fa-shopping-cart"></i> 
+                                  Add to cart
+                              </button> 
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
+</div>
+

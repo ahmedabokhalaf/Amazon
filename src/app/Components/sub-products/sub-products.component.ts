@@ -14,7 +14,9 @@ export class SubProductsComponent implements OnInit{
   @Input() receivedBrandID: number = 0;
   @Input() receivedCatID: number = 0;
   
+
   id:number=0;
+
   productList: IProduct[] = [];
   prdListOfBrand:IProduct[]=[];
 
