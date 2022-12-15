@@ -12,6 +12,8 @@ import { UserApiService } from 'src/app/Services/user-api.service';
 export class UserRegisterComponent implements OnInit {
   userFormGroup: FormGroup;
   newUser: IUser = {} as IUser;
+  success = false;
+  errMessage = ''
   constructor(private formbuilder: FormBuilder, private userApiService: UserApiService, private router: Router) {
 
     this.newUser = {
@@ -25,8 +27,8 @@ export class UserRegisterComponent implements OnInit {
       userName: ['', [Validators.required, Validators.minLength(7)]],
       email: ['', [Validators.required,
       Validators.pattern('^[a-z 0-9]{3,15}(@)(gmail)(.com)|(yahoo)(.com)$')]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['',[Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required]],
+      confirmPassword: ['']
     })
   }
 
@@ -47,9 +49,14 @@ export class UserRegisterComponent implements OnInit {
   saveUser() {
     this.newUser = this.userFormGroup.value;
     this.newUser.role = "Admin"
-    this.userApiService.saveUser(this.newUser).subscribe((response: any) => {
-      this.router.navigate(['/Home'])
-      console.log(response);
-    });
+    this.userApiService.saveUser(this.newUser).subscribe({next:() => {
+      this.success = true
+/*         this.router.navigate(['/Home'])
+ */     },error : (err) =>{
+       if(err.error.code == 11000)
+         this.errMessage= 'User already exists!! Try something else.'
+       else 
+         this.errMessage= 'Something went wrong!!'
+     }})
   }
 }

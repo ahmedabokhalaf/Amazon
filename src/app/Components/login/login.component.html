@@ -6,21 +6,28 @@
         <div class="col-md-4 card mx-auto mt-1">
              <div class="panel panel-primary">
                  <div class="panel-body">
-                     <form method="POST" action="#" role="form">
+                     <form  [formGroup]="loginForm" (ngSubmit)="login()">
                          <div class="form-group">
                              <h2 class="fs-3 mt-4">Sign in</h2>
                          </div>
                          <div class="form-group">
                              <label class="control-label fw-bold mt-1" for="signupEmail">Email or mobile phone number</label>
-                             <input id="signupEmail" type="email" maxlength="50" class="form-control box">
-                         </div>
+                             <input class="form-control box" name="userName" id="userName" formControlName="userName">
+                             <div [hidden]="userName?.valid || userName?.untouched" class="alert alert-warning">
+								<small *ngIf="userName?.errors?.['required']">Name is Required</small>
+							</div>
+                            </div>
                          <div class="form-group">
                              <label class="control-label fw-bold" for="signupPassword">Password</label>
-                             <input id="signupPassword" type="password" maxlength="25" class="form-control box" placeholder="at least 6 characters" length="40">
-                         </div>
+                             <input name="password" id="password" formControlName="password" type="password"  class="form-control box">
+                             <div [hidden]="password?.valid || password?.untouched" class="alert alert-warning">
+								<small *ngIf="password?.errors?.['required']">password is Required</small>
+							</div>
+                            </div>
                          <div class="form-group mt-3">
                              <button id="signupSubmit" type="submit" class="form-control btn-block" style="background-color:rgb(247, 155, 80);">Continue</button>
                          </div>
+                         <p *ngIf="message" class="alert alert-danger alert-dismissible fade show">{{message}}</p>
                          <p class="form-group">By continuing, you agree to Amazon's<a href="#">Conditions of Use</a> and our <a href="#">Privacy Notice.</a>.</p>
                      </form>
                  </div>

@@ -22,11 +22,11 @@ export class ProductApiService {
   }
 
   getAllProduct(): Observable<Data> {
-    return this.httpclinet.get<Data>(`${environment.APIBaseURL}/Product`);
+    return this.httpclinet.get<Data>(`${environment.APIBaseURL}/Product/Get`);
   }
 
   getProductById(pid: number): Observable<Data> {
-    return this.httpclinet.get<Data>(`${environment.APIBaseURL}/Product/${pid}`);
+    return this.httpclinet.get<Data>(`${environment.APIBaseURL}/Product/Get/${pid}`);
   }
   
 }

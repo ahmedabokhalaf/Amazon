@@ -24,4 +24,7 @@ export class BrandApiService {
     return this.httpClient.get<Data>(`${environment.APIBaseURL}/Brand`);
     
   }
+  getBrandById(brandId: number): Observable<Data> {
+    return this.httpClient.get<Data>(`${environment.APIBaseURL}/Brand/${brandId}`);
+  }
 }

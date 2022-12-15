@@ -14,30 +14,33 @@ import { ProductApiService } from 'src/app/Services/product-api.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  
+
   @Input() receivedBrandID: number = 0;
   @Input() receivedCatId: number = 0;
 
   @Input() receivedCatName: string = "";
-  category:ICategory|undefined=undefined;
-  id:number=0;
+  category: ICategory | undefined = undefined;
+  id: number = 0;
+  brandList: IBrand[] = [];
   productList: IProduct[] = [];
-  prdListOfBrand:IProduct[]=[];
+  prdListOfBrand: IProduct[] = [];
 
-  constructor(private productApiService:ProductApiService,private catApiService:CategoryApiService,private route: Router) {
-   /*  this.productApiService.getAllProduct().subscribe(prod => { this.productList = prod.data.products
-      this.prdListOfBrand = this.productList;
-      console.log(this.receivedCatId);
-       */
-      this.catApiService.getCategoryById(this.receivedCatId).subscribe(cat => { this.category = cat.data.category
-         cat.data.category.brands.forEach(prod=>{
-          this.productList=prod.products;
-          this.prdListOfBrand = this.productList;
-        })
-        });  
-   /*    
-    }); */
-    
+  constructor(private productApiService: ProductApiService, private catApiService: CategoryApiService, private route: Router) {
+    /*  this.productApiService.getAllProduct().subscribe(prod => { this.productList = prod.data.products
+       this.prdListOfBrand = this.productList;
+       console.log(this.receivedCatId);
+        */
+    this.catApiService.getCategoryById(this.receivedCatId).subscribe(cat => {
+      this.category = cat.data.category
+      this.brandList = cat.data.category.brands
+      cat.data.category.brands.forEach(prod => {
+        this.productList = prod.products;
+        this.prdListOfBrand = this.productList;
+      })
+    });
+    /*    
+     }); */
+
   }
 
   ngOnInit(): void {
@@ -49,21 +52,26 @@ export class ProductComponent implements OnInit {
         this.prdListOfBrand = this.productList;
       }); 
       */
-      this.catApiService.getCategoryById(this.receivedCatId).subscribe(cat => { this.category = cat.data.category
-        cat.data.category.brands.forEach(prod=>{
-         this.productList=prod.products;
-         this.prdListOfBrand = this.productList;
-       })
-       });  
-     
+      this.catApiService.getCategoryById(this.receivedCatId).subscribe(cat => {
+        this.category = cat.data.category
+        cat.data.category.brands.forEach(prod => {
+          this.productList = prod.products;
+          this.prdListOfBrand = this.productList;
+        })
+      });
+
     }
     else {
-     this.getProductsOfBrandID();
+      this.getProductsOfBrandID();
     }
   }
-  private getProductsOfBrandID()
-  {
-    this.prdListOfBrand= this.productList.filter((prd)=>prd.brandId==this.receivedBrandID);
+  private getProductsOfBrandID() {
+    this.prdListOfBrand = this.productList.filter((prd) => prd.brandId == this.receivedBrandID);
+  }
+  getBrandNameByProdID(prdID: number) {
+    
+     this.brandList.map((value, index) => value.id == prdID ? value.name : null).filter(v => v);
+
   }
   openPrdDetails(prdID: number) {
 
