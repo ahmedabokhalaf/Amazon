@@ -19,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SubProductsComponent } from './Components/sub-products/sub-products.component';
+// import { GooglePayButtonModule } from '@google-pay/button-angular';
+import { ConfirmComponent } from './Components/confirm/confirm.component';
 
  
 
@@ -39,20 +41,27 @@ import { SubProductsComponent } from './Components/sub-products/sub-products.com
     CartComponent,
     LoginComponent,
     ProductDetailsComponent,
-    SubProductsComponent
+    SubProductsComponent,
+    ConfirmComponent,
+   
  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
- 
+    // GooglePayButtonModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
- 
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+     
  
+  ],
+
+  exports:[
+    CartComponent,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

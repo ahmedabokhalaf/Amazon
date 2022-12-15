@@ -1,15 +1,4 @@
-export interface IProduct {
  
-    id:number ,
-    name:string,
-    price:number,
-    quantity:number,
-    imgUrl?:any ;
-    Count?: any;
-    catId:number
-
-   
-}
 
 export interface Data {
     success: boolean;

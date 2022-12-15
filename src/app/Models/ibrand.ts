@@ -11,8 +11,10 @@ export interface DataClass {
 
 
 export interface IBrand {
-name: any;
-Id: any;
+Id: number;
+Name: string;
+CategoryId  : number;
+
  
  
 }
