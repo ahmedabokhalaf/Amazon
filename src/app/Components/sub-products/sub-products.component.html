@@ -8,7 +8,7 @@
     <div class="col-sm-4  col-xl-4 col-md-6 my-4" *ngFor="let prod of prdListOfBrand">
         <div class="card text-black">
             <div class="d-flex justify-content-between p-3">
-                <p class="h5 mx-auto mb-0">{{prod.name}}</p>
+                <p class="h5 mx-auto mb-0">{{prod.product.name}}</p>
             </div>
             <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp" class="card-img-top"
                 alt="Laptop" />
@@ -19,13 +19,13 @@
 
                 <div class="d-flex justify-content-between mb-3">
                     <h5 class="mb-0">HP Notebook</h5>
-                    <h5 class="text-dark mb-0">${{prod?.price}}</h5>
+                    <h5 class="text-dark mb-0">${{prod.product.price}}</h5>
                 </div>
 
                 <div class="d-flex justify-content-between mb-2">
-                    <p class="text-muted mb-0">Available: <span class="fw-bold">{{prod.quantity}}</span></p>
+                    <p class="text-muted mb-0">Available: <span class="fw-bold">{{prod.product.quantity}}</span></p>
                 </div>
-                <a class="btn btn-primary mx-auto"(click)="openPrdDetails(prod.id)">Show Details</a>
+                <a class="btn btn-primary mx-auto"(click)="openPrdDetails(prod.product.id)">Show Details</a>
             </div>
         </div>
     </div>

@@ -51,8 +51,7 @@ export class UserRegisterComponent implements OnInit {
     this.newUser.role = "Admin"
     this.userApiService.saveUser(this.newUser).subscribe({next:() => {
       this.success = true
-/*         this.router.navigate(['/Home'])
- */     },error : (err) =>{
+     },error : (err) =>{
        if(err.error.code == 11000)
          this.errMessage= 'User already exists!! Try something else.'
        else 

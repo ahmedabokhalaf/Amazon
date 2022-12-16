@@ -5,12 +5,19 @@ export interface Data {
 }
 
 export interface DataClass {
-    products: IProduct[];
-    product: IProduct;
-
+   // products: IProduct[];
+    categoryName: string;
+    brandName:    string;
+    product:      IProduct;
+    products: DataProduct[];
+    productsOffer: IProduct[];
 }
 
-
+export interface DataProduct {
+    product:  IProduct ;
+    brandName: string;
+    catName:   string;
+}
 export interface IProduct {
     id:number ,
     name:string,

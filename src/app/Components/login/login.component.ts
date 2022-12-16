@@ -36,10 +36,14 @@ export class LoginComponent implements OnInit {
     this.UserInfoLog.rememberMe = true
     this.UserInfoLog.returnUrl=""
     this.userApiService.loginUser(this.UserInfoLog).subscribe({next: (res) => {
-      console.log(res)
+      if (res.success==true){
       localStorage.setItem('token',res.data.toekn)
       this.router.navigate(['/'])
+    }else{
+      this.message=res.message;
+    }
     },error : (err)=>{
+      console.log(err);
       this.message='Wrong username or password!!'
     }})
   }  

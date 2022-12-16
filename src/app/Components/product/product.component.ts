@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { IBrand } from 'src/app/Models/ibrand';
 import { ICategory } from 'src/app/Models/icategory';
 import { IProduct } from 'src/app/Models/iproduct';
-import { BrandApiService } from 'src/app/Services/brand-api.service';
 import { CategoryApiService } from 'src/app/Services/category-api.service';
 import { ProductApiService } from 'src/app/Services/product-api.service';
 
@@ -25,11 +24,8 @@ export class ProductComponent implements OnInit {
   productList: IProduct[] = [];
   prdListOfBrand: IProduct[] = [];
 
-  constructor(private productApiService: ProductApiService, private catApiService: CategoryApiService, private route: Router) {
-    /*  this.productApiService.getAllProduct().subscribe(prod => { this.productList = prod.data.products
-       this.prdListOfBrand = this.productList;
-       console.log(this.receivedCatId);
-        */
+  constructor(private catApiService: CategoryApiService, private route: Router) {
+    
     this.catApiService.getCategoryById(this.receivedCatId).subscribe(cat => {
       this.category = cat.data.category
       this.brandList = cat.data.category.brands
@@ -38,8 +34,7 @@ export class ProductComponent implements OnInit {
         this.prdListOfBrand = this.productList;
       })
     });
-    /*    
-     }); */
+   
 
   }
 
@@ -48,10 +43,7 @@ export class ProductComponent implements OnInit {
   ngOnChanges(): void {
     if (this.receivedBrandID == 0) {
 
-      /* this.productApiService.getAllProduct().subscribe(prd => { this.productList = prd.data.products
-        this.prdListOfBrand = this.productList;
-      }); 
-      */
+      
       this.catApiService.getCategoryById(this.receivedCatId).subscribe(cat => {
         this.category = cat.data.category
         cat.data.category.brands.forEach(prod => {
@@ -67,11 +59,6 @@ export class ProductComponent implements OnInit {
   }
   private getProductsOfBrandID() {
     this.prdListOfBrand = this.productList.filter((prd) => prd.brandId == this.receivedBrandID);
-  }
-  getBrandNameByProdID(prdID: number) {
-    
-     this.brandList.map((value, index) => value.id == prdID ? value.name : null).filter(v => v);
-
   }
   openPrdDetails(prdID: number) {
 

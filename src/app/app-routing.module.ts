@@ -19,8 +19,8 @@ const routes: Routes = [
       {path:'Home',component: HomeComponent},
       {path:'Products',component:ProductComponent},
       {path:'Products/:pid',component:ProductDetailsComponent},
-      {path:'Brands',component:BrandComponent},
       {path:'Categorys/:catid',component:CategoryComponent},
+      {path:'Brands/:brandid',component:BrandComponent},
 
     ]},
      {path:'register',component: UserRegisterComponent},
