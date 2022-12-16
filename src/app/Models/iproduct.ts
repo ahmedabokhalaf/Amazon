@@ -1,5 +1,4 @@
  
-
 export interface Data {
     success: boolean;
     message: string;
@@ -8,15 +7,23 @@ export interface Data {
 
 export interface DataClass {
     products: IProduct[];
+    product: IProduct;
+
 }
 
+
 export interface IProduct {
-    Id:number ,
-    Name:string,
-    Price:number,
-    Quantity:number,
-    Description:string ,
-    BrandId:number ,
-    ProductImages: any[];
- 
+    id:number ,
+    name:string,
+    price:number,
+    quantity:number,
+    description:string ,
+    brandId:number ,
+    productImages: ProductImage[]; 
 }
+export interface ProductImage {
+    id:        number;
+    path:      string;
+    productId: number;
+}
+

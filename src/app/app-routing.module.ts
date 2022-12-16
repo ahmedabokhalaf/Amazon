@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NgxPaypalComponent } from 'ngx-paypal/public_api';
+ 
+
+
 import { BrandComponent } from './Components/brand/brand.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { CategoryComponent } from './Components/category/category.component';
@@ -11,6 +15,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { ProductComponent } from './Components/product/product.component';
 import { UserRegisterComponent } from './Components/user-register/user-register.component';
+import { PaypalComponent } from './paypal/paypal.component';
 
 const routes: Routes = [
    // {path:'Main',component:MainLayoutComponent,children:[
@@ -18,13 +23,14 @@ const routes: Routes = [
       {path:'',redirectTo:'Home',pathMatch:'full'},// Default path 
       {path:'Home',component: HomeComponent},
       {path:'Products',component:ProductComponent},
-      {path:'productDetails',component:ProductDetailsComponent},
+      {path:'Products/:pid',component:ProductDetailsComponent},
       {path:'Brands',component:BrandComponent},
       {path:'Categorys',component:CategoryComponent},
       {path:'Confirm',component:ConfirmComponent},
-      { path: 'cart', component: CartComponent },
-      
+      {path: 'Cart', component:CartComponent}
+ 
     ]},
+    {path:'Payment', component: PaypalComponent},
      {path:'register',component: UserRegisterComponent},
      {path:'login',component: LoginComponent},
      {path:'**',component:NotFoundComponent}//wildcard path 
@@ -34,5 +40,5 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-})
+}) 
 export class AppRoutingModule { }

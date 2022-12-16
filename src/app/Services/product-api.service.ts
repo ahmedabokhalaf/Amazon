@@ -8,27 +8,28 @@ import { Data, IProduct } from '../Models/iproduct';
   providedIn: 'root'
 })
 export class ProductApiService {
+ 
+  prdList: IProduct[] = [];
 
-  private http_options={};
-  getProductsIDList: any;
-  constructor(private httpclinet:HttpClient) {
-   this.http_options = {
-     headers:new HttpHeaders({
-      'Content-Type' :'application/json',
-  })
+  private http_options = {};
 
-} ;
+  constructor(private httpclinet: HttpClient) {
+    this.http_options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
 
-}
+    };
 
-getAllProduct():Observable<Data>
-  {
+  }
+
+  getAllProduct(): Observable<Data> {
     return this.httpclinet.get<Data>(`${environment.APIBaseURL}/Product`);
   }
 
-  getProductById(pid:number) :Observable<Data>
-  {
-    return this.httpclinet.get<Data>(`${environment.APIBaseURL}/Product/${pid}`) ;
+  getProductById(pid: number): Observable<Data> {
+    return this.httpclinet.get<Data>(`${environment.APIBaseURL}/Product/${pid}`);
   }
-
+ 
+  
 }

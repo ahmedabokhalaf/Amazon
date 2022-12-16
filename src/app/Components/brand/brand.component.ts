@@ -13,7 +13,7 @@ export class BrandComponent implements OnInit {
   SelectedBrandID :number =0;
 
   constructor(private brandApiService : BrandApiService) { 
-    this.brandApiService.getAllBrands().subscribe(brands =>{this.BrandList = brands.data.ibrands} ) 
+    this.brandApiService.getAllBrands().subscribe(brands =>{this.BrandList = brands.data.brands} ) 
   }
 
   ngOnInit(): void {

@@ -1,48 +1,63 @@
+ 
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import {  IProduct } from 'src/app/Models/iproduct';
+import { APP_ID, EventEmitter, Input,   Output } from '@angular/core';
+import { ActivatedRoute, Data, Router } from '@angular/router';
+import { IProduct } from 'src/app/Models/iproduct';
+ 
 import { ProductApiService } from 'src/app/Services/product-api.service';
 import { Location } from '@angular/common';
 import { CartService } from 'src/app/Services/cart.service';
  
- 
- 
-
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  [x: string]: any;
+  @Input() data:any={};
+  @Output() item=new EventEmitter();
+  
+  dataProd:Data|undefined=undefined;
+  Prod:IProduct|undefined=undefined;
 
-  prd:IProduct|undefined=undefined;
+ 
+ 
   prdIDsList:number[] = [];
+  productList: IProduct[] = [];
   currentPrdID:number=0;
   product:IProduct[]=[];
+  
+  prdListOfBrand:IProduct[]=[];
  
 
-  constructor(private productService:ProductApiService,
+  constructor(private productApiService:ProductApiService,
     private activedRoute: ActivatedRoute,
     private location:Location,
     private router:Router,
     private cartService: CartService
     ) {
-      
+      this.productApiService.getAllProduct().subscribe(prod => { this.productList = prod.data.products
+        this.prdIDsList = this.productList.map(prd=> prd.id);        
+      });
      }
 
   ngOnInit(): void {
-     this.prdIDsList= this.productService.getProductsIDList();
+     this.activedRoute.paramMap.subscribe(paramMap =>{
+      
+      this.currentPrdID=(paramMap.get('pid'))?Number(paramMap.get('pid')):0;
+      this.productApiService.getProductById(this.currentPrdID).subscribe(ip => {
+        this.Prod = ip.data.product
+       });  
+  } 
+     )
   }
-
-  addToCart(product: IProduct) {
-    this.cartService.addToCart(product);
-    window.alert('Your product has been added to the cart!');
-  }
-
-    
+  
   goBack(){
     this.location.back();
+  }
+ 
+  AddToCart(){
+    this.item.emit(this.data);
   }
  
 }

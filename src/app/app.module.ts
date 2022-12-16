@@ -16,16 +16,27 @@ import { BrandComponent } from './Components/brand/brand.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+
+
+
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SubProductsComponent } from './Components/sub-products/sub-products.component';
+ 
 // import { GooglePayButtonModule } from '@google-pay/button-angular';
 import { ConfirmComponent } from './Components/confirm/confirm.component';
+ 
+ 
+import { PaypalComponent } from './paypal/paypal.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+ 
 
  
 
 
+
 @NgModule({
+ 
   declarations: [
     AppComponent,
     HomeComponent,
@@ -43,18 +54,20 @@ import { ConfirmComponent } from './Components/confirm/confirm.component';
     ProductDetailsComponent,
     SubProductsComponent,
     ConfirmComponent,
+    PaypalComponent,
+   
    
  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // GooglePayButtonModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     FormsModule,
     HttpClientModule,
+    NgxPayPalModule
      
  
   ],
@@ -65,5 +78,9 @@ import { ConfirmComponent } from './Components/confirm/confirm.component';
   ],
   providers: [],
   bootstrap: [AppComponent]
+ 
+    
+  
+ 
 })
 export class AppModule { }

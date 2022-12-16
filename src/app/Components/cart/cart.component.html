@@ -68,6 +68,20 @@ nav ul{
             <div class="products">
             </div>
         </div>
+
+        <div class="product-item">
+            <img src="https://i.imgur.com/Dhebu4F.jpg" class="product-item-img" alt="image">
+            <div class="product-item-desc">
+            </div>
+            <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">Orianz</span>
+                <!-- <h5 class="text-uppercase">{{Prod.name}}</h5> -->
+                <div class="price d-flex flex-row align-items-center"> 
+                    <!-- <span class="act-price">${{Prod?.price}}</span> -->
+                </div>
+            </div>
+            <!-- <p class="about">{{Prod?.description}}</p> -->
+            </div>
+        
     </section>
 
 
@@ -78,7 +92,7 @@ nav ul{
  
 
 <div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.Name }}</span>
-  <span>{{ item.Price }}</span>
-  <span>{{item.Description}}</span>
+  <span>{{ item.name }}</span>
+  <span>{{ item.price }}</span>
+  <span>{{item.description}}</span>
 </div>
