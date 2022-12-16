@@ -9,7 +9,6 @@ export interface Data {
 export interface DataClass {
     brands: IBrand[];
     brand: IBrand;
-
 }
 
 

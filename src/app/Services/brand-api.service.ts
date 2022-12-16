@@ -5,9 +5,6 @@ import { environment } from 'src/environments/environment';
 import { Data,IBrand } from '../Models/ibrand';
  
 
- 
- 
- 
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +23,8 @@ export class BrandApiService {
   getAllBrands():Observable<Data>{
     return this.httpClient.get<Data>(`${environment.APIBaseURL}/Brand`);
     
+  }
+  getBrandById(brandId: number): Observable<Data> {
+    return this.httpClient.get<Data>(`${environment.APIBaseURL}/Brand/${brandId}`);
   }
 }

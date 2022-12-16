@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input ,OnInit, Output  } from "@angular/core";
 import { Router } from "@angular/router";
-import { IProduct } from "src/app/Models/iproduct";
+import { DataProduct, IProduct } from "src/app/Models/iproduct";
 import { BrandApiService } from "src/app/Services/brand-api.service";
 import { ProductApiService } from "src/app/Services/product-api.service";
 
@@ -12,13 +12,12 @@ import { ProductApiService } from "src/app/Services/product-api.service";
 })
 export class SubProductsComponent implements OnInit{
   @Input() receivedBrandID: number = 0;
-  @Input() receivedCatID: number = 0;
-  
 
+
+  @Input() receivedCatName: string = "";
   id:number=0;
-
-  productList: IProduct[] = [];
-  prdListOfBrand:IProduct[]=[];
+  productList: DataProduct[] = [];
+  prdListOfBrand:DataProduct[]=[];
 
   constructor(private productApiService:ProductApiService,private brandApiService:BrandApiService,private route: Router) {
     this.productApiService.getAllProduct().subscribe(prod => { this.productList = prod.data.products
@@ -43,7 +42,7 @@ export class SubProductsComponent implements OnInit{
   }
   private getProductsOfBrandID()
   {
-    this.prdListOfBrand= this.productList.filter((prd)=>prd.brandId==this.receivedBrandID);
+    this.prdListOfBrand= this.productList.filter((prd)=>prd.product.brandId==this.receivedBrandID);
   }
   openPrdDetails(prdID: number) {
 

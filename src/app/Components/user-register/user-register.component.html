@@ -1,35 +1,68 @@
 <div class="container mb-3">
-   <div class="row">
-        <img class="w-25 mx-auto" src="./assets/amazonblack.png" alt="">
-    </div>
-    <div class="row">
-       <div class="col-md-5 card mx-auto mt-1">
+	<div class="row">
+		<img class="w-25 mx-auto" src="./assets/amazonblack.png" alt="" routerLink="/Home">
+	</div>
+	<div class="row">
+		<div class="col-md-5 card mx-auto mt-1">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form method="POST" action="#" role="form">
+					<form [formGroup]="userFormGroup" (ngSubmit)="saveUser()">
 						<div class="form-group">
 							<h2 class="fw-bold">Create account</h2>
 						</div>
 						<div class="form-group">
-							<label class="control-label fw-bold" for="signupName">Your name</label>
-							<input id="signupName" type="text" maxlength="50" class="form-control box">
+							<label class="control-label fw-bold" for="usrName">Your name</label>
+							<input type="text" class="form-control box" name="userName" id="userName"
+								formControlName="userName" [class.is-valid]="userName?.valid"
+								[class.is-invalid]="userName?.invalid">
+							<div [hidden]="userName?.valid || userName?.untouched" class="alert alert-warning">
+								<small *ngIf="userName?.errors?.['required']">Name is Required</small>
+								<small *ngIf="userName?.errors?.['minlength']">Name must be more 5 letters at least</small>
+							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label fw-bold" for="signupEmail">Email</label>
-							<input id="signupEmail" type="email" maxlength="50" class="form-control box">
+							<label for="usrEmail" class="form-label fw-bold">Email</label>
+							<input type="email" class="form-control box" name="email" id="email"
+								formControlName="email">
+							<div [hidden]="email?.valid || email?.untouched" class="alert alert-warning">
+								<small *ngIf="email?.errors?.['required']">email is Required</small>
+								<small *ngIf="email?.errors?.['pattern']">email must be exa123@yahoo.com </small>
+							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label fw-bold" for="signupPassword">Password</label>
-							<input id="signupPassword" type="password" maxlength="25" class="form-control box" placeholder="at least 6 characters" length="40">
+							<label for="usrPass" class="control-label fw-bold">Password</label>
+							<input type="password" class="form-control box" name="password" id="password"
+								formControlName="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+							<div [hidden]="password?.valid || password?.untouched" class="alert alert-warning">
+								<small *ngIf="password?.errors?.['required']">password is Required</small>
+								<small *ngIf="password?.errors?.['pattern']"> 
+									Must contain at least one number and one uppercase and lowercase letter,
+									and at least 8 or more characters.
+								</small>
+							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label fw-bold" for="signupPasswordagain">Password again</label>
-							<input id="signupPasswordagain" type="password" maxlength="25" class="form-control box">
+							<label for="usrRePass" class="form-label fw-bold">Password again</label>
+							<input type="password" class="form-control" name="confirmPassword" id="confirmPassword"
+								formControlName="confirmPassword" pattern="{{ password?.value }}">
+							<div [hidden]="confirmPassword?.valid || confirmPassword?.untouched"
+								class="alert alert-warning">
+								<small *ngIf="confirmPassword?.errors?.['pattern']"> Password & Confirm Password does
+									not match.</small>
+							</div>
 						</div>
 						<div class="form-group mt-3">
-							<button id="signupSubmit" type="submit" class="form-control btn-block" style="background-color:rgb(247, 155, 80);">Create your account</button>
+							<button id="signupSubmit" type="submit" class="form-control btn-block"
+								style="background-color:rgb(247, 155, 80);">Create your account</button>
 						</div>
-						<p class="form-group">By creating an account, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
+
+						<div *ngIf="success" class="alert alert-success">Registration Successful!! Please 
+							<a class="btn btn-success" routerLink="/login" [hidden]="!userFormGroup.valid">Login</a>
+						</div>
+						<p *ngIf="errMessage" class="alert alert-danger alert-dismissible fade show">{{errMessage}}</p>
+
+						<p class="form-group">By creating an account, you agree to our <a href="#">Terms of Use</a> and
+							our <a href="#">Privacy Policy</a>.</p>
 						<hr>
 						<p>Already have an account? <a routerLink="/login">Sign in</a></p>
 					</form>

@@ -71,6 +71,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
     FormsModule,
     FormsModule,
     HttpClientModule,
+
     NgxPayPalModule
      
  
@@ -79,6 +80,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
   exports:[
     CartComponent,
     
+
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

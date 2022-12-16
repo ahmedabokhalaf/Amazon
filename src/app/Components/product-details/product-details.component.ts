@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { APP_ID, EventEmitter, Input,   Output } from '@angular/core';
 
 import { ActivatedRoute, Data, Router } from '@angular/router';
-import { IProduct } from 'src/app/Models/iproduct';
+
  
+import { DataProduct, IProduct } from 'src/app/Models/iproduct';
 import { ProductApiService } from 'src/app/Services/product-api.service';
 import { Location } from '@angular/common';
 import { CartService } from 'src/app/Services/cart.service';
@@ -25,12 +26,13 @@ export class ProductDetailsComponent implements OnInit {
  
  
   prdIDsList:number[] = [];
-  productList: IProduct[] = [];
+  productList: DataProduct[] = [];
   currentPrdID:number=0;
-  product:IProduct[]=[];
-  
-  prdListOfBrand:IProduct[]=[];
+
  
+
+  brandName:string=""
+  catName:string=""
 
   constructor(private productApiService:ProductApiService,
     private activedRoute: ActivatedRoute,
@@ -39,7 +41,7 @@ export class ProductDetailsComponent implements OnInit {
     private cartService: CartService
     ) {
       this.productApiService.getAllProduct().subscribe(prod => { this.productList = prod.data.products
-        this.prdIDsList = this.productList.map(prd=> prd.id);        
+        this.prdIDsList = this.productList.map(prd=> prd.product.id);        
       });
      }
 
@@ -47,11 +49,13 @@ export class ProductDetailsComponent implements OnInit {
      this.activedRoute.paramMap.subscribe(paramMap =>{
       
       this.currentPrdID=(paramMap.get('pid'))?Number(paramMap.get('pid')):0;
-      this.productApiService.getProductById(this.currentPrdID).subscribe(ip => {
-        this.Prod = ip.data.product
-       });  
-  } 
-     )
+
+      this.productApiService.getProductById(this.currentPrdID).subscribe(p => {
+        this.Prod = p.data.product
+        this.brandName=p.data.brandName
+        this.catName = p.data.categoryName
+       });     
+    })
   }
   
   goBack(){

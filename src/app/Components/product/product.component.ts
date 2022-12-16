@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { IBrand } from 'src/app/Models/ibrand';
 import { ICategory } from 'src/app/Models/icategory';
-import { BrandApiService } from 'src/app/Services/brand-api.service';
+import { IProduct } from 'src/app/Models/iproduct';
 import { CategoryApiService } from 'src/app/Services/category-api.service';
+import { ProductApiService } from 'src/app/Services/product-api.service';
 
 
 @Component({
@@ -11,28 +13,61 @@ import { CategoryApiService } from 'src/app/Services/category-api.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  @Input() receivedCatID: number = 0;
-  categoryList: ICategory[] = [];
+
+  @Input() receivedBrandID: number = 0;
+  @Input() receivedCatId: number = 0;
+
+  @Input() receivedCatName: string = "";
+  category: ICategory | undefined = undefined;
+  id: number = 0;
   brandList: IBrand[] = [];
+  productList: IProduct[] = [];
+  prdListOfBrand: IProduct[] = [];
 
 
-  selectedBrandID: number = 0;
-  selectedCatID: number = 0;
-  CategoryId: IBrand[] =[];
-  BrandList: IBrand[] =[];
-  SelectedBrandID: number = 0;
+  constructor(private catApiService: CategoryApiService, private route: Router) {
+    
+    this.catApiService.getCategoryById(this.receivedCatId).subscribe(cat => {
+      this.category = cat.data.category
+      this.brandList = cat.data.category.brands
+      cat.data.category.brands.forEach(prod => {
+        this.productList = prod.products;
+        this.prdListOfBrand = this.productList;
+      })
+    });
+   
 
-
-  constructor(private brandApiService:BrandApiService,private catApiService:CategoryApiService) {
-    this.catApiService.getAllCategories().subscribe(cat => { this.categoryList = cat.data.categories});
-    this.brandApiService.getAllBrands().subscribe(brand => { this.brandList = brand.data.brands});
-   }
+  }
 
  
 
   ngOnInit(): void {
   }
-  AddToCart(event:any){
-    console.log(event);
+
+
+  ngOnChanges(): void {
+    if (this.receivedBrandID == 0) {
+
+      
+      this.catApiService.getCategoryById(this.receivedCatId).subscribe(cat => {
+        this.category = cat.data.category
+        cat.data.category.brands.forEach(prod => {
+          this.productList = prod.products;
+          this.prdListOfBrand = this.productList;
+        })
+      });
+
+    }
+    else {
+      this.getProductsOfBrandID();
+    }
+  }
+  private getProductsOfBrandID() {
+    this.prdListOfBrand = this.productList.filter((prd) => prd.brandId == this.receivedBrandID);
+  }
+  openPrdDetails(prdID: number) {
+
+    // this.route.navigate(['path',parameter])
+    this.route.navigate(['Products', prdID]);
   }
 }
