@@ -57,7 +57,9 @@ export class CartService {
   }
 
 
-
+  removeItem(index: number){
+    this.items.splice(index, 1);
+}
 
   
   }

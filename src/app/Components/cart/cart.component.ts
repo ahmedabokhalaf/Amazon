@@ -1,9 +1,12 @@
+
+
 import { CartService } from 'src/app/Services/cart.service';
  
 import { JsonPipe } from '@angular/common';
 import { Component, IterableDiffers, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/Models/iproduct';
 import { CartModel } from 'src/app/Models/cart-model';
+
  
 
 @Component({
@@ -35,4 +38,10 @@ export class CartComponent implements OnInit {
       this.cartProducts = JSON.parse(localStorage.getItem("MyCart")!); //to get the array of products from localStorag  
   }
  }
+
+ removeItem(index: number) {
+  this.cartService.removeItem(index);
+}
+
+
 }
