@@ -1,103 +1,31 @@
 
-<app-product-details (item)="addToCart($event)"></app-product-details>
+<!-- <app-product-details (item)="getProductFromCart($event)"></app-product-details> -->
 <a class="btn btn-primary" routerLink="Payment">Payment</a>
 
  
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
-
-    <title src="images/logo.jpeg">Login</title>
-
-
-   
-    <style>
-        .header-content a.login{
-    font-size: 27px;
-    color: rgb(193, 149, 4);
-    margin-top: 13px;
-}
-nav ul{
-    display: flex;
-    list-style: none;
-    margin-left:100px ;
-    margin-top: 13px;
-}
-    </style>
-</head>
-
-<body>
-
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="/Home" class="login"> shoppingcart </a>
-
-                <nav>
-                    <nav>
-                        <!-- <ul id="links">
-                            <li> <a href="/login"> Sign in </a></li>
-                            <li> <a href="/register"> Sign up </a></li>
-                        </ul> -->
-                        <ul id="user_info">
-                            <li><a href="#" id="user"></a> </li>
-                            <li class="shoppingcart">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                <span class="badge"></span>
-                                <div class="carts_products">
-                                    <div></div>
-                                    <a href="/cart"> show all product </a>
-                                </div>
-                            </li>
-                            <li><a href="/Home" id="logout"> logout </a></li>
-                        </ul>
-
-                    </nav>
-
-                </nav>
+<section class="home">
+    <div class="container">
+        <div class="products">
+        </div>
+    </div>
+    <ng-container class="uk-container panier" *ngFor="let prd of cartProducts">
+    <div class="product-item">
+        <img src="https://i.imgur.com/Dhebu4F.jpg" class="product-item-img" alt="image">
+        <div class="product-item-desc">
+        </div>
+        <div class="mt-4 mb-3"> 
+            <span class="text-uppercase text-muted brand">Orianz</span>
+            <div class="uk-child-width-1-2@s" uk-grid>
+            <h5 class="text-uppercase">{{prd.product.name}}</h5>
+         </div>
+            <div> 
+                <span class="act-price">${{prd.product.price}}</span>
             </div>
         </div>
-    </header>
-
-    <section class="home">
-        <div class="container">
-            <div class="products">
-            </div>
+        <div>
+        <p>{{prd.product.description}}</p>
         </div>
+    </div>
+    </ng-container>
 
-        <div class="product-item">
-            <img src="https://i.imgur.com/Dhebu4F.jpg" class="product-item-img" alt="image">
-            <div class="product-item-desc">
-            </div>
-            <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">Orianz</span>
-                <!-- <h5 class="text-uppercase">{{Prod.name}}</h5> -->
-                <div class="price d-flex flex-row align-items-center"> 
-                    <!-- <span class="act-price">${{Prod?.price}}</span> -->
-                </div>
-            </div>
-            <!-- <p class="about">{{Prod?.description}}</p> -->
-            </div>
-        
-    </section>
-
-
-   
-</body>
-
-</html>
- 
-
-<div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }}</span>
-  <span>{{ item.price }}</span>
-  <span>{{item.description}}</span>
-</div>
-
+</section>

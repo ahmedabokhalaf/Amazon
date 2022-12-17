@@ -9,6 +9,7 @@ import { DataProduct, IProduct } from 'src/app/Models/iproduct';
 import { ProductApiService } from 'src/app/Services/product-api.service';
 import { Location } from '@angular/common';
 import { CartService } from 'src/app/Services/cart.service';
+import { CartModel } from 'src/app/Models/cart-model';
  
 @Component({
   selector: 'app-product-details',
@@ -20,17 +21,21 @@ export class ProductDetailsComponent implements OnInit {
   @Output() item=new EventEmitter();
   
   dataProd:Data|undefined=undefined;
-  Prod:IProduct|undefined=undefined;
+  // Prod:IProduct|undefined=undefined;
+  Prod:IProduct ;
+  Prd!:IProduct ;
 
-
- 
- 
   prdIDsList:number[] = [];
   productList: DataProduct[] = [];
   currentPrdID:number=0;
 
- 
+  product:IProduct[]=[];
+  cartmodel:CartModel={
+    quantity :0,
+    product : this.Prd 
+  }
 
+ 
   brandName:string=""
   catName:string=""
 
@@ -63,9 +68,22 @@ export class ProductDetailsComponent implements OnInit {
   }
 
  
-  AddToCart(){
-    this.item.emit(this.data);
+  // AddToCart(){
+  //   this.item.emit(this.data);
+  // }
+
+  addToCart() {
+    console.log("product from add to cart" ,this.Prod )
+    if (this.Prod ){
+      this.cartmodel.product = this?.Prod;
+      this.cartmodel.quantity = 1;
+      this.cartService.addToCart(this.cartmodel);
+      window.alert('Your product has been added to the cart!');
+    }
+  
   }
+
+
  
 
 }

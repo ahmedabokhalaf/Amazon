@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-xl-2 bg-danger">
+    <div class="col-xl-2">
      <h5 class="text-center mt-3">SHOP BY </h5>
      <div class="row">
      </div>
@@ -9,12 +9,12 @@
            <option value="0">All</option>
            <option *ngFor="let brand of brandList" [value]="brand.id">{{brand.name}}</option>
          </select>
-         {{selectedBrandID}}
+      
        </div>
      </div>
 
     </div>
-    <div class="col-xl-10 bg-success">
+    <div class="col-xl-10">
      <app-product [receivedBrandID]="selectedBrandID" [receivedCatName]="currentcatName" [receivedCatId]="catID"></app-product>
  </div>
  </div>
