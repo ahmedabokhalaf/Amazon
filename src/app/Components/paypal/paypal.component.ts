@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
+import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 
 @Component({
   selector: 'app-paypal',
@@ -7,7 +7,6 @@ import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
   styleUrls: ['./paypal.component.css']
 })
 export class PaypalComponent implements OnInit {
-
   public payPalConfig?: IPayPalConfig;
 
   constructor() { }
@@ -16,10 +15,10 @@ export class PaypalComponent implements OnInit {
     this.initConfig();
   }
 
-  private initConfig(): void {
+  initConfig(): void {
     this.payPalConfig = {
       currency: 'EUR',
-      clientId: '', //Add Paypal ClientId Here
+      clientId: 'sb',
       createOrderOnClient: (data) => <ICreateOrderRequest>{
         intent: 'CAPTURE',
         purchase_units: [{
@@ -49,29 +48,33 @@ export class PaypalComponent implements OnInit {
       },
       style: {
         label: 'paypal',
-        layout: 'vertical',
-        color: 'blue',
-        shape: 'rect',
-        
+        layout: 'vertical'
       },
       onApprove: (data, actions) => {
         console.log('onApprove - transaction was approved, but not authorized', data, actions);
-        // actions.order.get().then(details => {
-        //   console.log('onApprove - you can get full order details inside onApprove: ', details);
-        // });
+        actions.order.get().then(details => {
+          console.log('onApprove - you can get full order details inside onApprove: ', details);
+        });
+
       },
       onClientAuthorization: (data) => {
         console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+        // this.showSuccess = true;
       },
       onCancel: (data, actions) => {
         console.log('OnCancel', data, actions);
+        // this.showCancel = true;
+
       },
       onError: err => {
         console.log('OnError', err);
+        // this.showError = true;
       },
       onClick: (data, actions) => {
         console.log('onClick', data, actions);
+        // this.resetStatus();
       }
     };
   }
+
 }

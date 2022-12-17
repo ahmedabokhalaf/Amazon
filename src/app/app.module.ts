@@ -29,8 +29,8 @@ import { SubProductsComponent } from './Components/sub-products/sub-products.com
 import { ConfirmComponent } from './Components/confirm/confirm.component';
  
  
-import { PaypalComponent } from './paypal/paypal.component';
-import { NgxPayPalModule } from 'ngx-paypal';
+import { NgxPaypalComponent, NgxPayPalModule } from 'ngx-paypal';
+import { PaypalComponent } from './Components/paypal/paypal.component';
  
 
 
@@ -59,9 +59,6 @@ import { NgxPayPalModule } from 'ngx-paypal';
     SubProductsComponent,
     ConfirmComponent,
     PaypalComponent,
-   
-   
- 
   ],
   imports: [
     BrowserModule,
@@ -71,10 +68,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
     FormsModule,
     FormsModule,
     HttpClientModule,
-
     NgxPayPalModule
-     
- 
+      
   ],
 
   exports:[
