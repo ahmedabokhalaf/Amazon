@@ -10,7 +10,7 @@ import { UserApiService } from 'src/app/Services/user-api.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+isuserlogged:boolean=false;
   loginForm : FormGroup
   message = '';
   UserInfoLog: LoginInfo = {} as LoginInfo;
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.isuserlogged = this.userApiService.isUserLogged; 
   }
   get userName() {
     return this.loginForm.get('userName');

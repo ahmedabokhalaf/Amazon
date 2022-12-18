@@ -15,7 +15,6 @@ import { CategoryComponent } from './Components/category/category.component';
 import { BrandComponent } from './Components/brand/brand.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { LoginComponent } from './Components/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -33,8 +32,11 @@ import { PaypalComponent } from './paypal/paypal.component';
 import { NgxPayPalModule } from 'ngx-paypal';
  
 
-
- 
+import { TranslateLoader,TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+ import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -72,8 +74,16 @@ import { NgxPayPalModule } from 'ngx-paypal';
     FormsModule,
     HttpClientModule,
 
-    NgxPayPalModule
+    NgxPayPalModule,
      
+    TranslateModule.forRoot({
+      loader:{
+        provide:TranslateLoader,
+        useFactory:httpTranslateLoader,
+        deps:[HttpClient]
+      }
+    }),
+           NgbModule,
  
   ],
 
@@ -83,7 +93,9 @@ import { NgxPayPalModule } from 'ngx-paypal';
 
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    [CookieService]
+  ],
   bootstrap: [AppComponent]
  
     
@@ -92,3 +104,6 @@ import { NgxPayPalModule } from 'ngx-paypal';
 
 })
 export class AppModule { }
+export function httpTranslateLoader(http:HttpClient){
+  return new TranslateHttpLoader(http);
+}

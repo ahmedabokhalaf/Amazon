@@ -12,6 +12,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { ProductComponent } from './Components/product/product.component';
 import { UserRegisterComponent } from './Components/user-register/user-register.component';
+import { AuthorizationGuard } from './Guards/authorization.guard';
 import { PaypalComponent } from './paypal/paypal.component';
 
 const routes: Routes = [
@@ -22,7 +23,7 @@ const routes: Routes = [
       {path:'Products',component:ProductComponent},
       {path:'Products/:pid',component:ProductDetailsComponent},
       {path:'Confirm',component:ConfirmComponent},
-      {path: 'Cart', component:CartComponent},
+      {path: 'Cart', component:CartComponent,canActivate:[AuthorizationGuard]},
       {path:'Categorys/:catid',component:CategoryComponent},
       {path:'Brands/:brandid',component:BrandComponent},
 
