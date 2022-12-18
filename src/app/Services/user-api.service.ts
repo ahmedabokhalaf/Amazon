@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IUser, LoginInfo } from '../Models/iuser';
 
@@ -8,9 +8,10 @@ import { IUser, LoginInfo } from '../Models/iuser';
   providedIn: 'root'
 })
 export class UserApiService {
-
+isuserloggedsubject:BehaviorSubject<boolean>;
   private httpOptions={};
   constructor(private httpClient: HttpClient) {
+    this.isuserloggedsubject = new BehaviorSubject<boolean>(this.isUserLogged);
     this.httpOptions={
       headers:new HttpHeaders({
         'Content-Type':'application/json'
@@ -25,5 +26,10 @@ export class UserApiService {
   public saveUser(user: IUser): Observable<any> {
     return this.httpClient.post<any>(`${environment.APIBaseURL}/User/SignUpAsViewer`, user);
   }
-
+  get isUserLogged(){
+    return (localStorage.getItem('token')) ? true:false
+  }
+  get loggedStatus():Observable<boolean>{
+   return this.isuserloggedsubject.asObservable();
+  }
 }

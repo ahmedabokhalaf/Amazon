@@ -45,12 +45,12 @@
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
           data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+          <span class="visually-hidden">{{'Previous'|translate}}</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
           data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+          <span class="visually-hidden">{{'Next'|translate}}</span>
         </button>
       </div>
     </div>
@@ -67,7 +67,7 @@
 
     <hr class="hr">
     <div class="row">
-      <h2><b>Deals</b> of The Day</h2>
+      <h2><b>{{'Deals'|translate}}</b> {{'of The Day'|translate}}</h2>
       <div class="row">
         <div class="col-sm-4  col-xl-4 col-md-6 my-4" *ngFor="let prod of productOfferList">
           <div class="card text-black">
@@ -78,7 +78,7 @@
               <a href="#">
                 <img class="w-100" src="./assets/sale.jpg" alt="Product 1">
               </a>
-              <a (click)="openPrdDetails(prod.id)" class="text-underline-hover  mt-3 ms-1 mb-2">Show Detailes</a>
+              <a (click)="openPrdDetails(prod.id)" class="text-underline-hover  mt-3 ms-1 mb-2">{{'Show Detailes'|translate}}</a>
             </div>
           </div>
         </div>
@@ -88,14 +88,14 @@
     <hr class="hr">
     <!-- Best Seller product -->
     <div class="row">
-      <h2>Best <b>Seller</b></h2>
+      <h2>{{'Best'|translate}} <b>{{'Seller'|translate}}</b></h2>
       <div class="row">
         <div class="col-sm-4  col-xl-4 col-md-6 my-4" *ngFor="let prod of productOfferList">
           <div class="card text-black">
           <div class="d-flex justify-content-between p-3">
             <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
               style="width: 35px; height: 35px;">
-              <p class="text-white mb-0 small">x4</p>
+              <p class="text-white mb-0 small">{{'x4'|translate}}</p>
             </div>
           </div>
           <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp" class="card-img-top"
@@ -106,14 +106,19 @@
               <h5 class="text-dark mb-0">${{prod.price}}</h5>
             </div>
             <div class="d-flex justify-content-between mb-2">
-              <p class="text-muted mb-0">Available: <span class="fw-bold">{{prod.quantity}}</span></p>
+              <p class="text-muted mb-0">{{'Available'|translate}}: <span class="fw-bold">{{prod.quantity}}</span></p>
 
             </div>
             <div class="d-flex justify-content-between mb-2">
-            <a class="btn btn-primary mx-auto"(click)="openPrdDetails(prod.id)">Show Details</a>
+            <a class="btn btn-primary mx-auto"(click)="openPrdDetails(prod.id)">{{'Show Details'|translate}}</a>
 
+<<<<<<< HEAD
             <a routerLink="/Cart" class="btn btn-warning mx-auto">
                <i class="fa fa-shopping-cart"></i>Add to Cart
+=======
+            <a routerLink="/register" class="btn btn-warning mx-auto">
+               <i class="fa fa-shopping-cart"></i>{{'Add to Cart'|translate}}
+>>>>>>> 0362b9935469b8986e33d33fe28ecb3c9cb8a3c0
             </a>
           </div>
           </div>

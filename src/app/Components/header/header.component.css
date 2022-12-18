@@ -28,12 +28,12 @@
  }
  /*left right modal*/
 .modal.left_modal, .modal.right_modal{
-	position: fixed;
+	 position: fixed; 
 	z-index: 99999;
   }
   .modal.left_modal .modal-dialog,
-  .modal.right_modal .modal-dialog {
-	position: fixed;
+   .modal.right_modal .modal-dialog {
+	 position: fixed;  
 	margin: auto;
 	width: 32%;
 	height: 100%;
@@ -42,7 +42,7 @@
 		 -o-transform: translate3d(0%, 0, 0);
 			transform: translate3d(0%, 0, 0);
   }
-  
+ 
   .modal-dialog {
 	  /* max-width: 100%; */
 	  margin: 1.75rem auto;
@@ -129,3 +129,4 @@
 	  overflow-x: hidden;
 	  height: 91vh;
   }
+

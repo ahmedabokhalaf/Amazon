@@ -15,25 +15,26 @@
                 d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
             <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
         </svg>
-            <span> hello,enter your address</span>
+            <span> {{'hello,enter your address'|translate}}</span>
         </a>
       </div>
       <div class="col-md-5">
         <form class="d-flex input-group w-auto my-auto mb-3 mb-md-0">
           <select id="nav-search-select" class="all col-1">
-            <option selected="selected" value="aps">All</option>
-            <option value="alexa-skills">Alexa Skills</option>
-            <option value="instant-video">Amazon Video</option>
-            <option value="warehouse-deals">Amazon Warehouse Deals</option>
-            <option value="appliances">Appliances</option>
-            <option value="mobile-apps">Apps &amp; Games</option>
-            <option value="arts-crafts">Arts, Crafts &amp; Sewing</option>
-            <option value="automotive">Automotive Parts &amp; Accessories</option>
-            <option value="baby-products">Baby</option>
-            <option value="beauty">Beauty &amp; Personal Care</option>
-            <option value="stripbooks">Books</option>
-            <option value="popular">CDs &amp; Vinyl</option>
+            <option selected="selected" value="aps">{{'All'|translate}}</option>
+            <option value="alexa-skills">{{'Alexa Skills'|translate}}</option>
+            <option value="instant-video">{{'Amazon Video'|translate}}</option>
+            <option value="warehouse-deals">{{'Amazon Warehouse Deals'|translate}}</option>
+            <option value="appliances">{{'Appliances'|translate}}</option>
+            <option value="mobile-apps">{{'Apps'|translate}} &amp; {{'Games'|translate}}</option>
+            <option value="arts-crafts">{{'Arts'|translate}}, {{'Crafts'|translate}} &amp; {{'Sewing'|translate}}</option>
+            <option value="automotive">{{'Automotive Parts'|translate}} &amp; {{'Accessories'|translate}}</option>
+            <option value="baby-products">{{'Baby'|translate}}</option>
+            <option value="beauty">{{'Beauty'|translate}} &amp; {{'Personal Care'|translate}}</option>
+            <option value="stripbooks">{{'Books'|translate}}</option>
+            <option value="popular">{{'CDs'|translate}} &amp; {{'Vinyl'|translate}}</option>
           </select>
+<<<<<<< HEAD
           <input autocomplete="off" type="search" name="yousef" (keyup.enter)="Search($event)" class="form-control rounded box " placeholder="Search" />
           
           <!-- <div [ngClass]="[users.length ? 'w-20' : 'w-50']">
@@ -59,6 +60,9 @@
 
 
 
+=======
+          <input autocomplete="off" type="search" class="form-control rounded box " placeholder="{{'Search'|translate}}" />
+>>>>>>> 0362b9935469b8986e33d33fe28ecb3c9cb8a3c0
           <span style=" background: rgb(247, 155, 80);" class=" input-group-text border-0 d-lg-flex">
             <i class="fas fa-search text-white mx-auto"></i>
           </span>
@@ -67,33 +71,22 @@
       <div class="col-md-4 d-flex justify-content-md-around align-items-center">
         <div class="d-flex">
 
-          <div class="dropdown">
-            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <i class="fa fa-flag m-0 text-light"></i>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li>
-                <a class="dropdown-item" href="#"><i class="united kingdom flag"></i>English
-                  <i class="fa fa-check text-success ms-2"></i></a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"><i class="poland flag"></i>Arabic</a>
-              </li>
-            </ul>
-          </div>
+          <span class="form-inline">
+            <select class="form-control mx-3" #selectedlang (change)="switchLang(selectedlang.value)">
+              <option *ngFor="let language of translate.getLangs()" [value]="language" [selected]="language === translate.currentLang">
+                {{language}} 
+              </option>
+            </select>
+          </span>
           <a routerLink="/login" routerLinkActive="active" class="text-light badge badge-primary text-wrap" style="width: 6rem;">
-            <span>Hello,Account & Lists<i class="fa fa-sort-desc"></i></span>
+            <span>{{'Hello,Account & Lists'|translate}}<i class="fa fa-sort-desc"></i></span>
           </a>
-          <a href="#" class="text-light badge badge-primary text-wrap" style="width: 6rem;">
-            <span>Returns & Order</span>
+          <a href="#" class="text-light badge badge-primary text-wrap mx-3" style="width: 6rem;">
+            <span>{{'Returns & Order'|translate}}</span>
           </a>
           <!-- Cart -->
           <a class="btn" href="/Cart">
-            <span><i class="fas fa-shopping-cart text-light">cart</i></span>
+            <span><i class="fas fa-shopping-cart text-light">{{'cart'|translate}}</i></span>
             <span class="badge rounded-pill badge-notification bg-danger">1</span>
           </a>
         </div>
@@ -114,7 +107,7 @@
               <a type="button" class="nav-link text-light" id="modal_view_left" 
               data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="fa fa-bars"></i>
-                <span> All</span>
+                <span> {{'All'|translate}}</span>
               </a>
           </li>
           <li class="nav-item" *ngFor="let c of categoryList">
@@ -133,39 +126,39 @@
   aria-labelledby="myModalLabel2">
   <div class="modal-dialog" role="document">
     
-      <div class="modal-content ">
+      <div class="modal-content">
         <div class="modal-header" style="background-color: #232f3e;">
-          <h2 class="modal-title text-light">Hello&Sign in</h2>
+          <h2 class="modal-title text-light">{{'Hello&Sign in'|translate}}</h2>
           <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close">
           </button>
         </div>
         <div class="modal-body get_quote_view_modal_body">
          
-          <div class="fw-bold">Treanding</div>
+          <div class="fw-bold">{{'Treanding'|translate}}</div>
           <hr class="hr">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              <a class="text-black" routerLink="/register">Best Seller</a>
+              <a class="text-black" routerLink="/register">{{'Best Seller'|translate}}</a>
             </li>
             <li class="list-group-item">
-              <a class="text-black" routerLink="/register">Fashion</a>
+              <a class="text-black" routerLink="/register">{{'Fashion'|translate}}</a>
             </li>
             <li class="list-group-item">
-              <a class="text-black" routerLink="/Categories">Fashion</a>
+              <a class="text-black" routerLink="/Categories">{{'Fashion'|translate}}</a>
             </li>
           </ul>
 
-          <div class="fw-bold mt-4"> Shop By Category</div>
+          <div class="fw-bold mt-4"> {{'Shop By Category'|translate}}</div>
           <hr class="hr">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              <a class="text-black" routerLink="/register">Mobiles, Tablets & Accessories</a>
+              <a class="text-black" routerLink="/register">{{'Mobiles, Tablets & Accessories'|translate}}</a>
             </li>
             <li class="list-group-item">
-              <a class="text-black" routerLink="/register">Computers & Office Supplies</a>
+              <a class="text-black" routerLink="/register">{{'Computers & Office Supplies'|translate}}</a>
             </li>
             <li class="list-group-item">
-              <a class="text-black" routerLink="/register">Women's Fashion</a>
+              <a class="text-black" routerLink="/register">{{"Women's Fashion"|translate}}</a>
             </li>
           </ul>
           

@@ -1,5 +1,6 @@
 
 <!-- <app-product-details (item)="getProductFromCart($event)"></app-product-details> -->
+<<<<<<< HEAD
 <!-- <a class="btn btn-primary" routerLink="/Payment">Payment</a> -->
 
  
@@ -47,6 +48,28 @@
                     </div>
                     
                 </div>
+=======
+<a class="btn btn-primary" routerLink="Payment">{{'Payment'|translate}}</a>
+
+ 
+<section class="home">
+    <div class="container">
+        <div class="products">
+        </div>
+    </div>
+    <ng-container class="uk-container panier" *ngFor="let prd of cartProducts">
+    <div class="product-item">
+        <img src="https://i.imgur.com/Dhebu4F.jpg" class="product-item-img" alt="image">
+        <div class="product-item-desc">
+        </div>
+        <div class="mt-4 mb-3"> 
+            <span class="text-uppercase text-muted brand">{{'Orianz'|translate}}</span>
+            <div class="uk-child-width-1-2@s" uk-grid>
+            <h5 class="text-uppercase">{{prd.product.name}}</h5>
+         </div>
+            <div> 
+                <span class="act-price">${{prd.product.price}}</span>
+>>>>>>> 0362b9935469b8986e33d33fe28ecb3c9cb8a3c0
             </div>
         </div>
       </div>
