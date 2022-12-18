@@ -27,14 +27,7 @@ export class ProductComponent implements OnInit {
 
   constructor(private catApiService: CategoryApiService, private route: Router) {
     
-    this.catApiService.getCategoryById(this.receivedCatId).subscribe(cat => {
-      this.category = cat.data.category
-      this.brandList = cat.data.category.brands
-      cat.data.category.brands.forEach(prod => {
-        this.productList = prod.products;
-        this.prdListOfBrand = this.productList;
-      })
-    });
+   
    
 
   }
@@ -46,13 +39,18 @@ export class ProductComponent implements OnInit {
 
 
   ngOnChanges(): void {
+   
     if (this.receivedBrandID == 0) {
-
-      
+      this.productList=[];
       this.catApiService.getCategoryById(this.receivedCatId).subscribe(cat => {
         this.category = cat.data.category
+        
+
         cat.data.category.brands.forEach(prod => {
-          this.productList = prod.products;
+          prod.products.forEach(p=>{
+            this.productList.push(p)
+          })
+          
           this.prdListOfBrand = this.productList;
         })
       });

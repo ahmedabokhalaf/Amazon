@@ -31,6 +31,7 @@ import { ConfirmComponent } from './Components/confirm/confirm.component';
  
 import { NgxPaypalComponent, NgxPayPalModule } from 'ngx-paypal';
 import { PaypalComponent } from './Components/paypal/paypal.component';
+import { FilterdProductComponent } from './Components/filterd-product/filterd-product.component';
  
 
 
@@ -59,6 +60,7 @@ import { PaypalComponent } from './Components/paypal/paypal.component';
     SubProductsComponent,
     ConfirmComponent,
     PaypalComponent,
+    FilterdProductComponent,
   ],
   imports: [
     BrowserModule,

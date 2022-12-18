@@ -34,7 +34,31 @@
             <option value="stripbooks">Books</option>
             <option value="popular">CDs &amp; Vinyl</option>
           </select>
-          <input autocomplete="off" type="search" class="form-control rounded box " placeholder="Search" />
+          <input autocomplete="off" type="search" name="yousef" (keyup.enter)="Search($event)" class="form-control rounded box " placeholder="Search" />
+          
+          <!-- <div [ngClass]="[users.length ? 'w-20' : 'w-50']">
+            <p style="margin-top: 25px;">
+    
+                <input [formControl]="inputCtrl" matInput class="input" >
+          <br>
+            <mat-hint *ngIf="_filteredTags.length >0;else noResults">
+              <p *ngIf="inputCtrl.value"> We found ({{_filteredTags?.length}}) item when we search for "{{inputCtrl.value}}"</p>
+            </mat-hint>
+    
+            </p>
+                <div class="tag-header">Tags</div>
+                <div style="margin-left: 40px; margin-top: 25px;">
+                    <div>
+                        <mc-tags (tagFilterValue)="_filterTags($value)" [chips]="_filteredTags"></mc-tags>
+                    </div>
+                </div>
+        </div>
+          <ng-template #noResults>
+            <div>We found ({{_filteredTags?.length}}) item when we search for "{{inputCtrl.value}}"  </div>
+          </ng-template> -->
+
+
+
           <span style=" background: rgb(247, 155, 80);" class=" input-group-text border-0 d-lg-flex">
             <i class="fas fa-search text-white mx-auto"></i>
           </span>

@@ -36,4 +36,10 @@ export class ProductApiService {
   getProductBestSeller(quantity: number): Observable<Data> {
     return this.httpclinet.get<Data>(`${environment.APIBaseURL}/Product/getProductBestSeller?num=${quantity}`);
   }
+
+  getFilteredProducts(term: string): Observable<Data> {
+    console.log(term);
+    
+    return this.httpclinet.get<Data>(`${environment.APIBaseURL}/Product/Search?term=${term}`);
+  }
 }
