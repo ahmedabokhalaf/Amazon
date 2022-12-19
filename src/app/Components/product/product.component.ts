@@ -26,20 +26,17 @@ export class ProductComponent implements OnInit {
 
 
   constructor(private catApiService: CategoryApiService, private route: Router) {
-    
-   
-   
 
-  }
+}
+
 
  
 
   ngOnInit(): void {
   }
 
-
   ngOnChanges(): void {
-   
+
     if (this.receivedBrandID == 0) {
       this.productList=[];
       this.catApiService.getCategoryById(this.receivedCatId).subscribe(cat => {

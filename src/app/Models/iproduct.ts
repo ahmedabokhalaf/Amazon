@@ -21,7 +21,9 @@ export interface DataProduct {
 export interface IProduct {
     id:number ,
     name:string,
-    price:number,
+    discount:      number;
+    price:         number;
+    discountPrice: number;
     quantity:number,
     description:string ,
     brandId:number ,
