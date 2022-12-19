@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './Components/footer/footer.component';
-import { SideMenuComponent } from './Components/side-menu/side-menu.component';
 import { UserRegisterComponent } from './Components/user-register/user-register.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
@@ -15,17 +13,8 @@ import { CategoryComponent } from './Components/category/category.component';
 import { BrandComponent } from './Components/brand/brand.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { LoginComponent } from './Components/login/login.component';
-
-
-
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { SubProductsComponent } from './Components/sub-products/sub-products.component';
-
-
- 
-// import { GooglePayButtonModule } from '@google-pay/button-angular';
-import { ConfirmComponent } from './Components/confirm/confirm.component';
  
  
 import { NgxPaypalComponent, NgxPayPalModule } from 'ngx-paypal';
@@ -48,7 +37,7 @@ import { CookieService } from 'ngx-cookie-service';
     AppComponent,
     HomeComponent,
     FooterComponent,
-    SideMenuComponent,
+
     UserRegisterComponent,
     MainLayoutComponent,
     NotFoundComponent,
@@ -59,8 +48,7 @@ import { CookieService } from 'ngx-cookie-service';
     CartComponent,
     LoginComponent,
     ProductDetailsComponent,
-    SubProductsComponent,
-    ConfirmComponent,
+
     PaypalComponent,
     FilterdProductComponent,
   ],

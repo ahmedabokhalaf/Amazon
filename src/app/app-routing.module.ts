@@ -4,7 +4,7 @@ import { NgxPaypalComponent } from 'ngx-paypal';
 import { BrandComponent } from './Components/brand/brand.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { CategoryComponent } from './Components/category/category.component';
-import { ConfirmComponent } from './Components/confirm/confirm.component';
+
 import { FilterdProductComponent } from './Components/filterd-product/filterd-product.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
@@ -14,11 +14,7 @@ import { PaypalComponent } from './Components/paypal/paypal.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { ProductComponent } from './Components/product/product.component';
 import { UserRegisterComponent } from './Components/user-register/user-register.component';
-<<<<<<< HEAD
-=======
 import { AuthorizationGuard } from './Guards/authorization.guard';
-import { PaypalComponent } from './paypal/paypal.component';
->>>>>>> 0362b9935469b8986e33d33fe28ecb3c9cb8a3c0
 
 const routes: Routes = [
    // {path:'Main',component:MainLayoutComponent,children:[
@@ -27,7 +23,6 @@ const routes: Routes = [
       {path:'Home',component: HomeComponent},
       {path:'Products',component:ProductComponent},
       {path:'Products/:pid',component:ProductDetailsComponent},
-      {path:'Confirm',component:ConfirmComponent},
       {path: 'Cart', component:CartComponent,canActivate:[AuthorizationGuard]},
       {path:'Categorys/:catid',component:CategoryComponent},
       {path:'Brands/:brandid',component:BrandComponent},
