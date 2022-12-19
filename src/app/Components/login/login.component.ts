@@ -47,5 +47,8 @@ isuserlogged:boolean=false;
       this.message='Wrong username or password!!'
     }})
   }  
+logout(){
+ localStorage.removeItem('token')
 
+}
 }
