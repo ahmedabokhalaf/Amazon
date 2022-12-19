@@ -28,8 +28,8 @@ export class ProductApiService {
   getProductById(pid: number): Observable<Data> {
     return this.httpclinet.get<Data>(`${environment.APIBaseURL}/Product/Get/${pid}`);
   }
-  getProductOffer(price: number): Observable<Data> {
-    return this.httpclinet.get<Data>(`${environment.APIBaseURL}/Product/getProductOffer?num=${price}`);
+  getProductOffer(): Observable<Data> {
+    return this.httpclinet.get<Data>(`${environment.APIBaseURL}/Product/getProductOffer`);
   }
   getProductBestSeller(quantity: number): Observable<Data> {
     return this.httpclinet.get<Data>(`${environment.APIBaseURL}/Product/getProductBestSeller?num=${quantity}`);

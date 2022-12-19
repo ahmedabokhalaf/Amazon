@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
     this.brandApiService.getAllBrands().subscribe(brand=>{
       this.brandList=brand.data.brands
     })
-    this.productApiService.getProductOffer(123).subscribe(prod=>{
+    this.productApiService.getProductOffer().subscribe(prod=>{
       this.productOfferList = prod.data.productsOffer
     })
     this.productApiService.getProductBestSeller(12).subscribe(prod=>{
