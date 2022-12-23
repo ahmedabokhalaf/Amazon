@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxPaypalComponent } from 'ngx-paypal';
+import { CheckoutComponent } from './checkout/checkout.component';
 import { BrandComponent } from './Components/brand/brand.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { CategoryComponent } from './Components/category/category.component';
@@ -26,9 +27,11 @@ const routes: Routes = [
       {path: 'Cart', component:CartComponent,canActivate:[AuthorizationGuard]},
       {path:'Categorys/:catid',component:CategoryComponent},
       {path:'Brands/:brandid',component:BrandComponent},
-      {path:'FilteredProduct/:term' , component:FilterdProductComponent}
+      {path:'FilteredProduct/:term' , component:FilterdProductComponent},
+      {path:'checkout', component: CheckoutComponent},
     ]},
     {path:'Payment', component: PaypalComponent},
+   
      {path:'register',component: UserRegisterComponent},
      {path:'login',component: LoginComponent},
      {path:'**',component:NotFoundComponent}//wildcard path 

@@ -19,8 +19,8 @@
         </a>
       </div>
       <div class="col-md-5">
-        <form class="d-flex input-group w-auto my-auto mb-3 mb-md-0">
-          <select id="nav-search-select" class="all col-1">
+        <form class="d-flex input-group w-auto my-auto mb-3 mb-md-0" >
+          <!-- <select id="nav-search-select" class="all col-1">
             <option selected="selected" value="aps">{{'All'|translate}}</option>
             <option value="alexa-skills">{{'Alexa Skills'|translate}}</option>
             <option value="instant-video">{{'Amazon Video'|translate}}</option>
@@ -33,13 +33,15 @@
             <option value="beauty">{{'Beauty'|translate}} &amp; {{'Personal Care'|translate}}</option>
             <option value="stripbooks">{{'Books'|translate}}</option>
             <option value="popular">{{'CDs'|translate}} &amp; {{'Vinyl'|translate}}</option>
-          </select>
+          </select> -->
 
-          <input autocomplete="off" type="search" class="form-control rounded box " placeholder="{{'Search'|translate}}" />
-
-          <span style=" background: rgb(247, 155, 80);" class=" input-group-text border-0 d-lg-flex">
-            <i class="fas fa-search text-white mx-auto"></i>
-          </span>
+          <!-- <input autocomplete="off" type="search" class="form-control rounded box " placeholder="{{'Search'|translate}}" /> -->
+          <input autocomplete="off" #temp type="search" name="term" (keyup.enter)="Search($event)" class="form-control rounded box " placeholder="{{'Search'|translate}}" />
+          <a (click)="SearchBtn(temp.value)" style=" background: rgb(247, 155, 80);" class=" input-group-text border-0 d-lg-flex">
+          
+           <i class="fas fa-search text-white mx-auto" ></i>
+         
+        </a>
         </form>
       </div>
       <div class="col-md-4 d-flex justify-content-md-around align-items-center">

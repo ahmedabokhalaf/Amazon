@@ -10,37 +10,25 @@ import { ProductApiService } from 'src/app/Services/product-api.service';
 })
 export class FilterdProductComponent implements OnInit {
   name:string ;
-  ProductFiltered:any =[] ;
+  ProductFiltered:IProduct[] =[] ;
   constructor(private prdService : ProductApiService , private router : Router , private activateRoute : ActivatedRoute) { 
     this.activateRoute.paramMap.subscribe(paramMap => {
       this.name =  paramMap.get('term')
       console.log(this.name);
-      this.prdService.getFilteredProducts(this.name).subscribe(prd=>this.ProductFiltered = prd )
-      
-    
-    }) ;
+      this.prdService.getFilteredProducts(this.name).subscribe(prd=> {
+        this.ProductFiltered = prd.data.filterdProducts;
+      } )
+    });
   }
   
-  // test()
-  // {
-  //   this.activateRoute.paramMap.subscribe(paramMap => {
-  //     this.name =  paramMap.get('term')
-  //     console.log(this.name);
-  //   }) ;
-
-  // }
-  // test1()
-  // {
-  //         this.prdService.getFilteredProducts(this.name).subscribe(prd=>this.ProductFiltered = prd )
-
-  // }
+  
 
   ngOnInit(): void {
-    // this.test() ;
-    // console.log(this.name) ;
-    // this.test1() ;
-
-
   }
+
+  openPrdDetails(prdID: number) {
+    this.router.navigate(['Products', prdID]);
+  }
+
 
 }

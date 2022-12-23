@@ -48,6 +48,13 @@ export class HeaderComponent implements OnInit {
     this.route.navigate(['FilteredProduct',res]) ;
 
   }
+
+  SearchBtn(term:string)
+  {
+    var res = term ;
+    this.route.navigate(['FilteredProduct',res]) ;
+
+  }
   switchLang(lang:string){
      let htmlTag = document.getElementsByTagName('html')[0] as HTMLHtmlElement
    htmlTag.dir = lang === "ar" ? "rtl" : "ltr";

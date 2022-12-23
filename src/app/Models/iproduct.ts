@@ -11,6 +11,7 @@ export interface DataClass {
     product:      IProduct;
     products: DataProduct[];
     productsOffer: IProduct[];
+    filterdProducts: IProduct[];
 }
 
 export interface DataProduct {
