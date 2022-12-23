@@ -50,7 +50,7 @@
                          <div class="form-group mt-3">
                              <button id="signupSubmit" type="submit" class="form-control btn-block" style="background-color:rgb(247, 155, 80);">{{'Continue'|translate}}</button>
                          </div>
-                         <p *ngIf="message" class="alert alert-danger alert-dismissible fade show">{{'message'|translate}}</p>
+                         <p *ngIf="message" class="alert alert-danger alert-dismissible fade show">{{message|translate}}</p>
                          <p class="form-group">{{"By continuing, you agree to Amazon's "|translate}}<a href="#">{{' Conditions of Use '|translate}}</a> {{'and our'|translate}} <a href="#">{{'Privacy Notice.'|translate}}</a>.</p>
                      </form>
                  </div>

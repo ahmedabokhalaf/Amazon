@@ -80,7 +80,7 @@
 						<div *ngIf="success" class="alert alert-success">{{'Registration Successful!! Please'|translate}} 
 							<a class="btn btn-success" routerLink="/login" [hidden]="!userFormGroup.valid">{{'Login'|translate}}</a>
 						</div>
-						<p *ngIf="errMessage" class="alert alert-danger alert-dismissible fade show">{{'errMessage'|translate}}</p>
+						<p *ngIf="errMessage" class="alert alert-danger alert-dismissible fade show">{{errMessage|translate}}</p>
 
 						<p class="form-group">{{'By creating an account, you agree to our'|translate}} <a href="#">{{'Terms of Use'|translate}}</a> {{'an our'|translate}} <a href="#">{{'Privacy Policy'|translate}}</a>.</p>
 						<hr>

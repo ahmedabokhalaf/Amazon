@@ -7,25 +7,25 @@
           <span class="text-light">.eg</span>
         </a>
       </div>      
-      <div class="col-md-1" [hidden]="isuserlogged" >
-        <button class="btn btn-light" [routerLink]="['/login']">{{'Login'|translate}}</button>
-        </div>
-      <div class="col-md-1 text-light" [hidden]="!isuserlogged">
-
-            <div class="btn-group text-sm text-wrap">
-              <div  class="btn btn-secondary text-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                {{'Hi..,'|translate}} 
-              </div>
-              <ul class="dropdown-menu">
-                <a class="btn btn-light d-flex input-group w-auto my-auto mb-3 mb-md-0" (click)="logout()">{{'logout'|translate}}</a>
-              </ul>
-            </div>
-      </div>
+     
       <div class="col-md-5">
         <form class="d-flex input-group w-auto my-auto mb-3 mb-md-0">
   
-          <input autocomplete="off" type="search" class="form-control rounded box " placeholder="{{'Search'|translate}}" />
-
+          <input autocomplete="on" type="search" class="form-control rounded box " placeholder="{{'Search'|translate}}" />
+          <div class="col-md-1" [hidden]="isuserlogged" >
+            <button class="btn btn-light" [routerLink]="['/login']">{{'Login'|translate}}</button>
+            </div>
+          <div class="col-md-1 text-light" [hidden]="!isuserlogged">
+    
+                <div class="btn-group text-sm text-wrap">
+                  <div  class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{'Hi..'|translate}} {{getuser()}}
+                  </div>
+                  <ul class="dropdown-menu">
+                    <a class="btn btn-light d-flex input-group w-auto my-auto mb-3 mb-md-0" (click)="logout()">{{'logout'|translate}}</a>
+                  </ul>
+                </div>
+          </div>
           <span style=" background: rgb(247, 155, 80);" class=" input-group-text border-0 d-lg-flex">
             <i class="fas fa-search text-white mx-auto"></i>
           </span>
@@ -41,16 +41,12 @@
               </option>
             </select>
           </span>
-          <a routerLink="/login" routerLinkActive="active" class="text-light text-wrap mx-2 text-sm">
-            <span>{{'Hello,Account & Lists'|translate}}<i class="fa fa-sort-desc"></i></span>
-          </a>
-          <a href="#" class="text-light text-sm text-wrap mx-2">
-            <span>{{'Returns & Order'|translate}}</span>
-          </a>
+         
+         
           <!-- Cart -->
           <a class="btn" href="/Cart">
             <span><i class="fas fa-shopping-cart text-light">{{'cart'|translate}}</i></span>
-            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+            <span class="badge rounded-pill badge-notification bg-danger"></span>
           </a>
         </div>
       </div>

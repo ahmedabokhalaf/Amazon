@@ -38,6 +38,7 @@ isuserlogged:boolean=false;
     this.userApiService.loginUser(this.UserInfoLog).subscribe({next: (res) => {
       if (res.success==true){
       localStorage.setItem('token',res.data.toekn)
+      localStorage.setItem('username',res.data.user.userName);
       this.router.navigate(['/'])
     }else{
       this.message=res.message;
@@ -51,4 +52,5 @@ logout(){
  localStorage.removeItem('token')
 
 }
+
 }

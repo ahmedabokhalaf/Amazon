@@ -1,15 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { right } from '@popperjs/core';
 import { CookieService } from 'ngx-cookie-service';
 import { ICategory } from 'src/app/Models/icategory';
-import { IProduct } from 'src/app/Models/iproduct';
-import { LoginInfo } from 'src/app/Models/iuser';
 import { CategoryApiService } from 'src/app/Services/category-api.service';
-import { ProductApiService } from 'src/app/Services/product-api.service';
 import { UserApiService } from 'src/app/Services/user-api.service';
-import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +16,7 @@ export class HeaderComponent implements OnInit {
   categoryList: ICategory[] = [];
   constructor(private catApiService:CategoryApiService,private route: Router,
     public cookieservice:CookieService, public translate:TranslateService,
-     private userApiService:UserApiService) {
+     public userApiService:UserApiService) {
     this.catApiService.getAllCategories().subscribe(cat => { this.categoryList = cat.data.categories});
     const value:string = cookieservice.get('language');
     translate.addLangs(['en','ar']);
@@ -83,6 +78,10 @@ export class HeaderComponent implements OnInit {
   }
   logout(){
     localStorage.removeItem('token');
+    location.reload();
   }
- 
+
+ getuser(){
+   return localStorage.getItem('username');
+ }
 }
