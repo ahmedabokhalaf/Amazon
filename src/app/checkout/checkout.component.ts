@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Data, Router } from '@angular/router';
+import { IProduct } from '../Models/iproduct';
 import { OrderDetails, OrderItems } from '../Models/order';
 import { OrderService } from '../Services/order.service';
+import { ProductApiService } from '../Services/product-api.service';
 
 @Component({
   selector: 'app-checkout',
@@ -10,63 +12,90 @@ import { OrderService } from '../Services/order.service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
-  selectedType:string ;
-  userFormGroup: FormGroup;
+  Paymentarr: any = ['Cash', 'visa'];
+  orderFormGroup: FormGroup;
   order: OrderDetails = {} as OrderDetails;
-  orderItm:OrderItems = {} as OrderItems ;
+  orderItm: OrderItems = {} as OrderItems;
   success = false;
   errMessage = ''
-  constructor(private formbuilder: FormBuilder, private orderApiService: OrderService, private router: Router) {
-{
-  this.orderItm.productId = 1004 ;
-  this.orderItm.quantity = 50  ;
-  this.orderItm.price = 1000 ;
-    this.userFormGroup = this.formbuilder.group({
-      quantity: ['', [Validators.required]],
-  
+  inputValue=''
+  product:IProduct|undefined=undefined;
+  currentprodID:number
+  price:number
+  constructor(private formbuilder: FormBuilder, private orderApiService: OrderService, private router: Router,
+    private prodApiService:ProductApiService,private activedRoute: ActivatedRoute) {
+    {
+      this.orderFormGroup = this.formbuilder.group({
+        paymentMethod: ['', [Validators.required]],
+        quantity: ['', [Validators.required]],
+        address: ['', [Validators.required]],
+        street: ['', [Validators.required],],
+      })
+    }
+  }
+  getRxcui(event){
+
+    this.inputValue =String( Number(event.target.value)*this.price);
+    console.log(this.inputValue);
+ 
+ }
+  changePayment(e: any) {
+    this.paymentMethod?.setValue(e.target.value, {
+      onlySelf: true,
+    });
+  }
+  // Access formcontrols getter
+  get paymentMethod() {
+    return this.orderFormGroup.get('paymentMethod');
+  }
+  get quantity() {
+    return this.orderFormGroup.get('quantity');
+  }
+  get address() {
+    return this.orderFormGroup.get('address');
+  }
+  get street() {
+    return this.orderFormGroup.get('street');
+  }
+
+  ngOnInit(): void {
+    this.activedRoute.paramMap.subscribe(paramMap =>{
+      // 
+      this.currentprodID=(paramMap.get('prodid'))?Number(paramMap.get('prodid')):0;
+      this.prodApiService.getProductById(this.currentprodID).subscribe(prod => {
+      this.price=prod.data.product.discountPrice
+      console.log(this.price);
+      
+       });     
     })
   }
-}
-
-  get quantity() {
-    return this.userFormGroup.get('quantity');
-  }
-  
-  ngOnInit(): void {
-  }
   CreateOrder() {
-    
-    // this.order = this.userFormGroup.value;
-    this.order.userId = "4bf96068-149a-478a-8eb6-f3460f88bed3" ;
-    this.order.totalPrice=1000 ;
-    this.order.address = "Sohag" ;
-    this.order.street = "Elsabil" ;
-    this.order.paymentMethod = "cash" ;
-    this.order.orderItems =  this.orderItm;
-    
-
+    this.orderItm.productId =  this.currentprodID;
+    this.orderItm.quantity = this.quantity.value;
+    this.orderItm.price = this.price;
+    console.log(this.orderItm.quantity)
+    this.order.userId = localStorage.getItem('userId');
+    this.order.totalPrice = (this.orderItm.price*this.orderItm.quantity);
+    this.order.address = this.address.value;
+    this.order.street = this.street.value;
+    this.order.paymentMethod = this.paymentMethod.value;
+    this.order.orderItems = this.orderItm;
+    console.log(this.order)
     this.orderApiService.CreateOrder(this.order).subscribe(
-      {next: (res) => {
-        if (res.success==true){
+      {
+        next: (res) => {
+          if (res.success == true) {
+            this.success = true
             console.log(res.message);
-            
+          }
+          else {
+            console.log(res.message);
+          }
         }
-      else{
-        console.log(res.message);
-          
-      }
-      
-     }
-     ,error : (err) =>{
-       if(err.error.code == 11000){
-         this.errMessage= 'User already exists!! Try something else.';
-         console.log(this.errMessage);
-       }
-         
-       else {
-         this.errMessage= 'Something went wrong!!';
-         console.log(this.errMessage);
-       }
-     }})
+        , error: (err) => {
+            this.errMessage = "something went error please try again";
+            console.log(this.errMessage);
+        }
+      }) 
   }
 }

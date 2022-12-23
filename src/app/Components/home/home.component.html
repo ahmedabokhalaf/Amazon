@@ -56,12 +56,10 @@
     <!-- Product -->
     <div class="row my-4">
       <div class="col-sm-2" *ngFor="let brand of brandList">
-
         <div class="card" style="border: 1px solid rgb(185, 183, 182);">
           <a class="btn" style="background-color: white;" (click)="openBrandDetails(brand.id)">
             <p class="fw-bolder my-2 d-flex justify-content-around text-dark">{{brand.name}}</p>
           </a>
-
         </div>
       </div>
     </div>
@@ -79,26 +77,22 @@
               <a href="#">
                 <img class="w-100" src="./assets/{{prod.productImages[0].path}}" alt="Product 1">
               </a>
-
               <div class="card-body">
                 <div class="d-flex justify-content-between">
                   <p class="small"><a href="#!" class="text-muted">old price</a></p>
                   <p class="small text-danger"><s>$ {{prod.price}}</s></p>
                 </div>
-
                 <div class="d-flex justify-content-between mb-3">
                   <h6 class="mb-0">after discount</h6>
                   <h6 class="text-dark mb-0">$ {{prod.discountPrice}}</h6>
                 </div>
-                <a (click)="openPrdDetails(prod.id)" class="text-underline-hover  mt-3 ms-1 mb-2">Show Detailes</a>
+                <a  (click)="openPrdDetails(prod.id)" class="text-light  btn btn-primary mt-3 mb-2">Show Detailes</a>
               </div>
 
             </div>
           </div>
         </div>
       </div>
-
-
     <hr class="hr">
     <!-- Best Seller product -->
     <div class="row">
@@ -106,13 +100,8 @@
       <div class="row">
         <div class="col-sm-4  col-xl-4 col-md-6 my-4" *ngFor="let prod of productOfferList">
           <div class="card text-black">
-          <div class="d-flex justify-content-between p-3">
-            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-              style="width: 35px; height: 35px;">
-              <p class="text-white mb-0 small">{{'x4'|translate}}</p>
-            </div>
-          </div>
-          <img src="./assets/{{prod.productImages[0].path}}" class="card-img-top"
+    
+          <img src="./assets/{{prod.productImages[0].path}}" class="card-img-top mt-3"
             alt="Laptop" />
           <div class="card-body">
             <div class="d-flex justify-content-between mb-2">
@@ -124,19 +113,11 @@
 
             </div>
             <div class="d-flex justify-content-between mb-2">
-            <a class="btn btn-primary mx-auto"(click)="openPrdDetails(prod.id)">{{'Show Details'|translate}}</a>
-
-
-
-            <a routerLink="/register" class="btn btn-warning mx-auto">
-               <i class="fa fa-shopping-cart"></i>{{'Add to Cart'|translate}}
-
-               
-            </a>
+            <a class="btn btn-primary ms-1 text-light"(click)="openPrdDetails(prod.id)">{{'Show Details'|translate}}</a>
+           <!--  <a (click)="addToCart()" class="btn btn-warning mx-auto text-dark">
+               <i class="fa fa-shopping-cart text-dark"></i>{{'Add to Cart'|translate}}
+            </a> -->
           </div>
-
-
-
           </div>
         </div>
       </div>

@@ -28,7 +28,7 @@ const routes: Routes = [
       {path:'Categorys/:catid',component:CategoryComponent},
       {path:'Brands/:brandid',component:BrandComponent},
       {path:'FilteredProduct/:term' , component:FilterdProductComponent},
-      {path:'checkout', component: CheckoutComponent},
+      {path:'checkout/:prodid', component: CheckoutComponent},
     ]},
     {path:'Payment', component: PaypalComponent},
    

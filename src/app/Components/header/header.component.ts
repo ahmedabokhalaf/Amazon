@@ -15,7 +15,9 @@ import { ProductApiService } from 'src/app/Services/product-api.service';
 })
 export class HeaderComponent implements OnInit {
   categoryList: ICategory[] = [];
+  totalItem:number
 
+  cartProducts:IProduct[]=[]
   constructor(private catApiService:CategoryApiService,private route: Router,public cookieservice:CookieService, public translate:TranslateService) {
     this.catApiService.getAllCategories().subscribe(cat => { this.categoryList = cat.data.categories});
     const value:string = cookieservice.get('language');
@@ -34,7 +36,11 @@ export class HeaderComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    if ("MyCart" in localStorage) {
+      this.cartProducts = JSON.parse(localStorage.getItem("MyCart")!);
+      this.totalItem = this.cartProducts.length  
   }
+}
   openCatDetails(catID: number) {
 
     // this.route.navigate(['path',parameter])
@@ -81,5 +87,9 @@ export class HeaderComponent implements OnInit {
       headTag.appendChild(newlink);
     }
 
+  }
+  GetCurrantTotalProductInCart()
+  {
+    
   }
 }
