@@ -47,7 +47,6 @@ export class HeaderComponent implements OnInit {
     this.route.navigate(['Categorys', catID]);
   }
 
-
   Search(term:any)
   {
     var res = term.target.value ;
@@ -88,8 +87,5 @@ export class HeaderComponent implements OnInit {
     }
 
   }
-  GetCurrantTotalProductInCart()
-  {
-    
-  }
+  
 }

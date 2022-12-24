@@ -21,7 +21,6 @@ export class ProductDetailsComponent implements OnInit {
   @Output() item=new EventEmitter();
   
   dataProd:Data|undefined=undefined;
-  // Prod:IProduct|undefined=undefined;
   Prod:IProduct ;
   Prd!:IProduct ;
 
@@ -79,6 +78,7 @@ export class ProductDetailsComponent implements OnInit {
       this.cartmodel.quantity = 1;
       this.cartService.addToCart(this.cartmodel);
       window.alert('Your product has been added to the cart!');
+      location.reload();
     }
   
   }

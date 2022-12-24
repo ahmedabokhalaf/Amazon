@@ -39,7 +39,17 @@ export class CartComponent implements OnInit {
   }
  }
  deleteItem(id:number) {
-  localStorage.removeItem("MyCart");
+  var items = JSON.parse(localStorage.getItem("MyCart")); // updated
+  for (var i =0; i< items.length; i++) {
+    console.log(items);
+      if (items[i].product.id == id) {
+        items.splice(i, 1);  
+    }
+    items = JSON.stringify(items); //Restoring object left into items again
+    localStorage.setItem("MyCart", items);
+    location.reload();
+ 
+}
 }
 }
 
