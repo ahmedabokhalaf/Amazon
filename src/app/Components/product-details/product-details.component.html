@@ -28,14 +28,14 @@
                                 <i class="fa fa-shopping-cart text-muted"></i>
                             </div>
                             <div class="mt-4 mb-3">
-                                <p class="text-uppercase text-muted brand">{{catName}}</p>
-                                <p class="text-uppercase text-muted brand">{{brandName}}</p>
-                                <h5 class="text-uppercase">{{Prod?.name}}</h5>
+                                <p class="text-uppercase text-muted brand">{{catName|translate}}</p>
+                                <p class="text-uppercase text-muted brand">{{brandName|translate}}</p>
+                                <h5 class="text-uppercase">{{Prod?.name|translate}}</h5>
                                 <div class="price d-flex flex-row align-items-center"> <span
                                         class="act-price">${{Prod?.discountPrice}}</span>
                                 </div>
                             </div>
-                            <p class="about">{{Prod?.description}}</p>
+                            <p class="about">{{Prod?.description|translate}}</p>
                             <div class="cart mt-4 align-items-center">
 
                                <!-- <button  class="btn btn-warning text-uppercase mr-2 px-4"><i class="fa fa-shopping-cart"></i> Add to cart</button>  -->

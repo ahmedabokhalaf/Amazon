@@ -141,6 +141,9 @@
     "Back":"رجوع",
     "Name":"الاسم",
     "Quantity":"الكميه",
+    "Hi..,":"..مرحبــا",
+    "logout":"تسجيل الخرروج",
+    "Login":"تسجيل الدخول",
     "Price":"السعر",
     "Show Details":"عرض التفــاصيل",
     "6":"٦",
@@ -179,5 +182,12 @@
 "Forms":"طرق",
 "Contact Directory":"تواصل مع المسول",
 "Payment Center":"مركز الدفع",
-"Follow Us":"تابعونا "
+"Follow Us":"تابعونا ",
+"COCACOLA":"كوكاكولا",
+"cocacola":"كوكاكولا",
+"the page you are looking for not avaible!":"الصفحه غير موجوده !",
+"Look like you're lost":"يبدو انك فقدت العنوان الصحيح",
+"Go to Home":"الرجوع الى الصفحه الرئيسيه",
+"Hi..":"مرحبــا",
+"Payment":"طريقة الدفع"
 }
