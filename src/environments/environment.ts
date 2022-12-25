@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  // APIBaseURL:'http://AmazonApi.somee.com'
   APIBaseURL:'https://localhost:7027'
 };
 

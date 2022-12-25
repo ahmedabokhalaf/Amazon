@@ -11,19 +11,14 @@
       <div class="col-md-5">
 
         <form class="d-flex input-group w-auto my-auto mb-3 mb-md-0" >
-          
 
-          <!-- <input autocomplete="off" type="search" class="form-control rounded box " placeholder="{{'Search'|translate}}" /> -->
           <input autocomplete="off" #temp type="search" name="term" (keyup.enter)="Search($event)" class="form-control rounded box " placeholder="{{'Search'|translate}}" />
           <a (click)="SearchBtn(temp.value)" style=" background: rgb(247, 155, 80);" class=" input-group-text border-0 d-lg-flex">
           
            <i class="fas fa-search text-white mx-auto" ></i>
          
           </a>
-        
-      
-  
-          <!-- <input autocomplete="on" type="search" class="form-control rounded box " placeholder="{{'Search'|translate}}" /> -->
+          
           <div class="col-md-1" [hidden]="isuserlogged" >
             <button class="btn btn-light" [routerLink]="['/login']">{{'Login'|translate}}</button>
             </div>
@@ -38,9 +33,7 @@
                   </ul>
                 </div>
           </div>
-          <span style=" background: rgb(247, 155, 80);" class=" input-group-text border-0 d-lg-flex">
-            <i class="fas fa-search text-white mx-auto"></i>
-          </span>
+         
         </form>
       </div>
       <div class="col-md-4 d-flex justify-content-md-around align-items-center">
@@ -58,7 +51,9 @@
           <!-- Cart -->
           <a class="btn" href="/Cart">
             <span><i class="fas fa-shopping-cart text-light">{{'cart'|translate}}</i></span>
-            <span class="badge rounded-pill badge-notification bg-danger"></span>
+
+
+            <span class="badge rounded-pill badge-notification bg-danger">{{totalItem}}</span>
           </a>
         </div>
       </div>
@@ -70,6 +65,20 @@
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+              <a type="button" class="nav-link text-light" id="modal_view_left" 
+              data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fa fa-bars"></i>
+                <span> {{'All'|translate}}</span>
+              </a>
+          </li>
+          <li class="nav-item" *ngFor="let c of categoryList">
+            <a class="nav-link text-light" (click)="openCatDetails(c.id)" routerLinkActive="active">{{c.name|translate}}</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 </header>

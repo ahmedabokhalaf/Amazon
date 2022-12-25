@@ -189,5 +189,47 @@
 "Look like you're lost":"يبدو انك فقدت العنوان الصحيح",
 "Go to Home":"الرجوع الى الصفحه الرئيسيه",
 "Hi..":"مرحبــا",
-"Payment":"طريقة الدفع"
+"Payment":"طريقة الدفع",
+"street is Required":"الشارع مطلوب",
+"street":"الشارع",
+"address is Required":"العنوان مطلوب",
+"address":"العنوان",
+"Please Choose payment method":"من فضلك إختر طريقة الدفع",
+"Choose Payment":"إختر طريقة الدفع" ,
+"Payment method:":"طريقة الدفع",
+"Total Price :":"إجمالى الدفع" ,
+"quantity is required":"الكمية مطلوبة",
+"Price :":"السعر",
+"No Products in Your Carte  ^_^":" ^_^ لا يوجد منتجات فى العربة" ,
+"No Products in search with this Name ^_^" :" ^_^ لا نتائج بحث موجودة" ,
+"After discount":"بعد الخصم",
+"old price" :"السعر القديم",
+"Most":"الأكثر",
+"Popular":"شيوعا",
+"Laptop" :"لابتوبات" ,
+"quantity":"الكمية",
+"Checkout" :"الدفع",
+
+"Apple":"ابل",
+"Iphone":"ايفون",
+"Zara":"زارا",
+"Hp":"اتش بى",
+"Lenovo":"لينوفو",
+"Dell":"ديل",
+"Toshiba":"توشيبا",
+"Samsung":"سامسونج",
+"Polo":"بولو",
+"Smart Phones":"هواتف ذكيه",
+"Now":"الان",
+
+"Xiaomi":"شاومى",
+"Oppo":"اوبو",
+"Nokia":"نوكيا",
+"6.7-inch Super Retina XDR display with ProMotion for a faster, more responsive feelCinematic mode adds shallow depth of field and shifts focus automatically in your videos":"سوب ريتينا 6.7 بوصه عرض سريع و بدقه عاليه و ملمس اكثر سلاسه "
+
+
+
+
+
+
 }

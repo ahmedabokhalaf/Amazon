@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CookieService } from 'ngx-cookie-service';
 import { ICategory } from 'src/app/Models/icategory';
+import { IProduct } from 'src/app/Models/iproduct';
 import { CategoryApiService } from 'src/app/Services/category-api.service';
 import { UserApiService } from 'src/app/Services/user-api.service';
 
@@ -14,9 +15,11 @@ import { UserApiService } from 'src/app/Services/user-api.service';
 export class HeaderComponent implements OnInit {
   isuserlogged:boolean=false;
   categoryList: ICategory[] = [];
-  constructor(private catApiService:CategoryApiService,private route: Router,
-    public cookieservice:CookieService, public translate:TranslateService,
-     public userApiService:UserApiService) {
+
+  totalItem:number
+
+  cartProducts:IProduct[]=[]
+  constructor(private catApiService:CategoryApiService,private route: Router,public cookieservice:CookieService, public translate:TranslateService , public userApiService:UserApiService) {
     this.catApiService.getAllCategories().subscribe(cat => { this.categoryList = cat.data.categories});
     const value:string = cookieservice.get('language');
     translate.addLangs(['en','ar']);
@@ -34,14 +37,21 @@ export class HeaderComponent implements OnInit {
 
   }
   ngOnInit(): void {
+
     this.isuserlogged = this.userApiService.isUserLogged; 
+
+    if ("MyCart" in localStorage) {
+      this.cartProducts = JSON.parse(localStorage.getItem("MyCart")!);
+      this.totalItem = this.cartProducts.length  
+
   }
+}
   openCatDetails(catID: number) {
 
     // this.route.navigate(['path',parameter])
     this.route.navigate(['Categorys', catID]);
+    
   }
-
 
   Search(term:any)
   {
@@ -91,4 +101,6 @@ export class HeaderComponent implements OnInit {
  getuser(){
    return localStorage.getItem('username');
  }
+
+  
 }
