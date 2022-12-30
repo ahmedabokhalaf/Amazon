@@ -17,7 +17,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="images p-3">
-                                    <div class="text-center p-4"> <img id="main-image"  src="./assets/Images/{{prd.product.productImages[0].path}}" width="250" /> </div>
+                                                <!-- <img class="w-55 mx-auto" src="http://Amazon-Dashboard.somee.com/wwwroot/Images/{{Prod.productImages[0].path}}" alt="Product 1"> -->
+
+                                    <div class="text-center p-4"> <img id="main-image"  src="http://Amazon-Dashboard.somee.com/wwwroot/Images/{{prd.product.productImages[0].path}}" width="250" /> </div>
                                     
                                 </div>
                             </div>
@@ -40,9 +42,10 @@
                                         
                                         <div class="price d-flex flex-row align-items-center"> <span class="act-price">${{prd.product.discountPrice}}</span>
                                         </div>
+                                        <p class="about">{{prd.product.description|translate}}</p>
+
                                     </div>
-                                    <p class="about">{{prd.product.description|translate}}</p>
-                                    <div  >
+                                    <div>
                                        <button class="btn btn-success btn-lg"  (click)="opencheckDetails(prd.product.id)">{{'Payment'|translate}}
                                         </button> 
                                     </div>

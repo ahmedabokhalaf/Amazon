@@ -79,9 +79,9 @@
           <div class="row mx-auto d-flex justify-content-around">
             <a href="#">
               <!-- img src="~/Images/@product.ProductImages.FirstOrDefault()?.Path"  -->
-              {{prod.productImages[0]?.path}}
-              <!-- <img class="w-55 mx-auto" src="http://amazondashboard.somee.com/wwwroot/Images/{{prod.productImages[0]?.path}}" alt="Product 1"> -->
-               <img class="w-55 mx-auto" src="http://localhost:5294/wwwroot/Images/{{prod.productImages[0]?.path}}" alt="Product 1"> 
+              <!-- {{prod.productImages[0]?.path}} -->
+              <img class="w-55 mx-auto" src="http://Amazon-Dashboard.somee.com/wwwroot/Images/{{prod.productImages[0]?.path}}" alt="Product 1">
+               <!-- <img class="w-55 mx-auto" src="http://localhost:5294/wwwroot/Images/{{prod.productImages[0]?.path}}" alt="Product 1">  -->
 
               <!-- <img class="w-55 mx-auto" src="./assets/Images/{{prod.productImages[0].path}}" alt="Product 1"> -->
             </a>
@@ -109,8 +109,8 @@
       <div class="col-sm-4  col-xl-4 col-md-6 my-4" *ngFor="let prod of productBestSellerList">
         <div class="card text-black">
   
-          <img class="w-55 mx-auto" src="./assets/Images/{{prod.productImages[0].path}}" alt="Product 1">
-
+          <!-- <img class="w-55 mx-auto" src="./assets/Images/{{prod.productImages[0].path}}" alt="Product 1"> -->
+          <img class="w-55 mx-auto" src="http://Amazon-Dashboard.somee.com/wwwroot/Images/{{prod.productImages[0]?.path}}" alt="Product 1">
         <div class="card-body">
           <div class="d-flex justify-content-between mb-2">
             <p class="lead mb-0">{{prod.name}}</p>
@@ -136,8 +136,9 @@
     <div class="row">
         <div class="col-sm-4  col-xl-4 col-md-6 my-4" *ngFor="let prod of productMostPopularList">
           <div class="card text-black">
-            <img class="w-55 mx-auto" src="./assets/Images/{{prod.productImages[0].path}}" alt="Product 1">
-          <div class="card-body">
+            <!-- <img class="w-55 mx-auto" src="./assets/Images/{{prod.productImages[0].path}}" alt="Product 1"> -->
+            <img class="w-55 mx-auto" src="http://Amazon-Dashboard.somee.com/wwwroot/Images/{{prod.productImages[0]?.path}}" alt="Product 1">
+            <div class="card-body">
             <div class="d-flex justify-content-between mb-2">
               <p class="lead mb-0">{{prod.name|translate}}</p>
               <h5 class="text-dark mb-0">${{prod.price}}</h5>
