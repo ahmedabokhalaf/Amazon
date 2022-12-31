@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-   APIBaseURL:'http://amazon-api.somee.com'
-  // APIBaseURL:'https://localhost:7027'
+  //  APIBaseURL:'http://www.amazon-api.somee.com'
+  APIBaseURL:'https://localhost:7027'
 };
 
 /*

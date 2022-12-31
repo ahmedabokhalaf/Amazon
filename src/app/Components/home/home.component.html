@@ -71,15 +71,14 @@
   <div class="row">
     <h2><b>{{'Deals'|translate}}</b> {{'of The Day'|translate}}</h2>
     <div class="row">
-      <div class="col-sm-4  col-xl-4 col-md-6 my-4" *ngFor="let prod of productOfferList">
+      <div class="col-sm-4  col-xl-4 col-md-6 my-4"  *ngFor="let prod of productOfferList" >
         <div class="card text-black">
           <div class="d-flex justify-content-between p-3">
             <p class="h5 mx-auto mb-0">{{prod.name|translate}}</p>
           </div>
           <div class="row mx-auto d-flex justify-content-around">
             <a href="#">
-              <!-- img src="~/Images/@product.ProductImages.FirstOrDefault()?.Path"  -->
-              <!-- {{prod.productImages[0]?.path}} -->
+            
               <img class="w-55 mx-auto" src="http://Amazon-Dashboard.somee.com/wwwroot/Images/{{prod.productImages[0]?.path}}" alt="Product 1">
                <!-- <img class="w-55 mx-auto" src="http://localhost:5294/wwwroot/Images/{{prod.productImages[0]?.path}}" alt="Product 1">  -->
 
@@ -106,7 +105,8 @@
   <div class="row">
     <h2>{{'Best'|translate}} <b>{{'Seller'|translate}}</b></h2>
     <div class="row">
-      <div class="col-sm-4  col-xl-4 col-md-6 my-4" *ngFor="let prod of productBestSellerList">
+      <div class="col-sm-4  col-xl-4 col-md-6 my-4" *ngFor="let prod of productBestSellerList">  
+        <!-- <div *ngIf="prod.quantity > 0" > -->
         <div class="card text-black">
   
           <!-- <img class="w-55 mx-auto" src="./assets/Images/{{prod.productImages[0].path}}" alt="Product 1"> -->
@@ -129,32 +129,35 @@
     </div>
   </div>
   </div>
+  <!-- </div> -->
 
   <hr class="hr">
+  <div class="row">
     <!-- Best Most Popular -->
     <h2>{{'Most'|translate}} <b>{{'Popular'|translate}}</b></h2>
     <div class="row">
-        <div class="col-sm-4  col-xl-4 col-md-6 my-4" *ngFor="let prod of productMostPopularList">
+        <div class="col-sm-4  col-xl-4 col-md-6 my-4"  *ngFor="let prd of productMostPopularList">
+          <!-- <div *ngIf="prd.quantity > 0" > -->
           <div class="card text-black">
-            <!-- <img class="w-55 mx-auto" src="./assets/Images/{{prod.productImages[0].path}}" alt="Product 1"> -->
-            <img class="w-55 mx-auto" src="http://Amazon-Dashboard.somee.com/wwwroot/Images/{{prod.productImages[0]?.path}}" alt="Product 1">
+            <img class="w-55 mx-auto" src="http://Amazon-Dashboard.somee.com/wwwroot/Images/{{prd.productImages[0]?.path}}" alt="Product 1">
             <div class="card-body">
             <div class="d-flex justify-content-between mb-2">
-              <p class="lead mb-0">{{prod.name|translate}}</p>
-              <h5 class="text-dark mb-0">${{prod.price}}</h5>
+              <p class="lead mb-0">{{prd.name|translate}}</p>
+              <h5 class="text-dark mb-0">${{prd.price}}</h5>
             </div>
             <div class="d-flex justify-content-between mb-2">
-              <p class="text-muted mb-0">{{'Available'|translate}}: <span class="fw-bold">{{prod.quantity}}</span></p>
+              <p class="text-muted mb-0">{{'Available'|translate}}: <span class="fw-bold">{{prd.quantity}}</span></p>
 
             </div>
             <div class="d-flex justify-content-between mb-2">
-            <a class="btn btn-primary ms-1 text-light"(click)="openPrdDetails(prod.id)">{{'Show Details'|translate}}</a>
+            <a class="btn btn-primary ms-1 text-light"(click)="openPrdDetails(prd.id)">{{'Show Details'|translate}}</a>
           </div>
           </div>
         </div>
       </div>
+      </div>
     </div>
   </div>
+</div>
 
-  </div>
  

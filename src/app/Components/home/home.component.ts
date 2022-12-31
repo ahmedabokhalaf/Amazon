@@ -24,6 +24,10 @@ export class HomeComponent implements OnInit {
       this.brandList=brand.data.brands
     })
 
+    this.productApiService.getProductMostPopular().subscribe(prod=>{
+      this.productMostPopularList = prod.data.productsOffer      
+    })
+
     this.productApiService.getProductOffer().subscribe(prod=>{
       this.productOfferList = prod.data.productsOffer
     })
@@ -31,9 +35,7 @@ export class HomeComponent implements OnInit {
       this.productBestSellerList = prod.data.productsOffer
     })
 
-    this.productApiService.getProductMostPopular().subscribe(prod=>{
-      this.productMostPopularList = prod.data.productsOffer      
-    })
+   
   }
 
   ngOnInit(): void {

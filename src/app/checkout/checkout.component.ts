@@ -23,6 +23,7 @@ export class CheckoutComponent {
   currentprodID:number
   price:number
   name:string
+  Quantity:number
   constructor(private formbuilder: FormBuilder, private orderApiService: OrderService, private router: Router,
     private prodApiService:ProductApiService,private activedRoute: ActivatedRoute) {
     {
@@ -65,6 +66,7 @@ export class CheckoutComponent {
       this.currentprodID=(paramMap.get('prodid'))?Number(paramMap.get('prodid')):0;
       this.prodApiService.getProductById(this.currentprodID).subscribe(prod => {
       this.price=prod.data.product.discountPrice
+      this.Quantity = prod.data.product.quantity
       this.name = prod.data.product.name
       console.log(this.price);
       
@@ -72,7 +74,14 @@ export class CheckoutComponent {
     })
   }
   CreateOrder() {
+
+    if(this.quantity.value > this.Quantity)
+    {
+      alert("Required Quantity is More than Existed") ;
+      return 
+    }
     this.orderItm.productId =  this.currentprodID;
+
     this.orderItm.quantity = this.quantity.value;
     this.orderItm.price = this.price;
     console.log(this.orderItm.quantity)
